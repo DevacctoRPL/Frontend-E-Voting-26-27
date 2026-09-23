@@ -1,0 +1,130 @@
+[
+  {
+    "category": "MPK",
+    "number": 1,
+    "name": "Syaira Ramadina Maulana & Eza Vandino",
+    "vision": "Mewujudkan MPK sebagai tempat berkembang dan menyalurkan aspirasi siswa secara partisipatif, bertanggung jawab, serta amanah, sekaligus menjadi penghubung antara siswa dan OSIS untuk menciptakan kerja sama yang baik.",
+    "mission": [
+      "Mendengar — Menampung dan memperjuangkan aspirasi siswa.",
+      "Menghubungkan — Membangun komunikasi antara siswa, OSIS, dan pihak sekolah.",
+      "Mengawasi — Mengawal dan mengevaluasi program kerja MPK dan OSIS secara objektif."
+    ],
+    "workPrograms": {
+      "shortTerm": [
+        {
+          "name": "MPK Goes to Class",
+          "description": "Menjaring aspirasi siswa secara langsung melalui kelas dan barcode."
+        },
+        {
+          "name": "MPK Goes to Evaluation",
+          "description": "Mengevaluasi program kerja OSIS berdasarkan aspirasi siswa."
+        },
+        {
+          "name": "MPK Connect",
+          "description": "Membangun komunikasi dan koordinasi antara siswa, perwakilan kelas, dan MPK."
+        },
+        {
+          "name": "MPK Check Up",
+          "description": "Mengawasi pelaksanaan program kerja MPK dan OSIS agar berjalan secara objektif."
+        },
+        {
+          "name": "MPK Insight",
+          "description": "Membuat video kreatif dan informatif tentang fungsi MPK, kegiatan MPK, serta hak dan kewajiban siswa."
+        }
+      ],
+      "longTerm": [
+        "Mengadakan Musyawarah Kerja (MUKER)",
+        "Mengadakan Musyawarah Besar (MUBES)",
+        "Mengadakan Laporan Pertanggung Jawaban (LPJ)",
+        "Mengadakan Komisi Pemilihan Organisasi Pelajar (KPOP)"
+      ]
+    }
+  },
+  {
+    "category": "MPK",
+    "number": 2,
+    "name": "Keisya Widya Ayuningrum Andico & Anastasya Putri Rahmawati",
+    "vision": "Mewujudkan MPK yang aspiratif, kritis, bertanggung jawab, dan transparan sebagai wadah perwakilan siswa serta mampu membangun sinergi bersama OSIS dalam menciptakan lingkungan sekolah yang aktif, demokratis, dan berintegritas.",
+    "mission": [
+      "Meningkatkan fungsi legislasi MPK.",
+      "Menampung dan menyalurkan aspirasi siswa.",
+      "Mengoptimalkan pengawasan terhadap kinerja OSIS dan setiap seksi bidang.",
+      "Mendukung pengembangan program unggulan dan ekstrakurikuler.",
+      "Membangun komunikasi dan kerja sama yang baik.",
+      "Menciptakan MPK yang transparan dan dapat dipercaya.",
+      "Mendorong budaya evaluasi dan perbaikan pada OSIS.",
+      "Berperan aktif dalam pelaksanaan kegiatan sekolah untuk mendukung ketertiban dan tujuan sekolah."
+    ],
+    "workPrograms": {
+      "shortTerm": [
+        "Menyampaikan aspirasi siswa/i kepada pihak terkait.",
+        "Mengadakan evaluasi terhadap kinerja seksi bidang.",
+        "Mengadakan rapat penampungan kebutuhan, kendala, dan usulan dari program unggulan dan ekstrakurikuler.",
+        "Mengadakan Student Spotlight sebagai wadah pengembangan potensi dan bakat siswa/i."
+      ],
+      "longTerm": [
+        "Mengadakan Musyawarah Kerja (MUKER)",
+        "Mengadakan Musyawarah Besar (MUBES)",
+        "Mengadakan Laporan Pertanggung Jawaban (LPJ)",
+        "Mengadakan Komisi Pemilihan Organisasi Pelajar (KPOP)"
+      ]
+    }
+  },
+  {
+    "category": "OSIS",
+    "number": 1,
+    "name": "Kevin Mahardika Kumaeni & Kamila Siti Aryna",
+    "vision": "Mewujudkan OSIS SMK Plus Pelita Nusantara yang berintegritas, inspiratif, kooperatif, dan berkarakter PINTER (Progressive, Innovative, Nurturing, Tactful, Empowering, Religius) untuk membentuk siswa/i yang siap berkembang dan memberi dampak positif bagi lingkungan sekitar.",
+    "mission": [
+      "Menjadikan OSIS SMK Plus Pelita Nusantara yang bertakwa terhadap Tuhan YME serta menjunjung tinggi toleransi antarumat beragama.",
+      "Mendukung penuh setiap kegiatan yang dilaksanakan SMK Plus Pelita Nusantara.",
+      "Menjadi wadah yang mampu memberikan inspirasi untuk siswa/i dalam berbagai kegiatan.",
+      "Mewujudkan OSIS yang mendorong siswa/i berkontribusi positif bagi lingkungan sekitar.",
+      "Meningkatkan kinerja OSIS SMK Plus Pelita Nusantara untuk menjadi lebih baik dan cepat tanggap."
+    ],
+    "workPrograms": {
+      "shortTerm": [
+        "Mengadakan rapat 2 bulan sebelum event untuk mendengar aspirasi.",
+        "Mengadakan kerja sama untuk Penus Sharing On Ramadhan (PSOR).",
+        "Mengadakan turnamen E-Sports.",
+        "Mengadakan Pentas Seni.",
+        "Mengadakan JUBER (Jum'at Bersih) sebulan sekali."
+      ],
+      "longTerm": [
+        "Memperingati Hari Besar Nasional dan Keagamaan.",
+        "Menyelenggarakan Classmeeting.",
+        "Membantu menyukseskan upacara bendera setiap hari Senin dan apel setiap hari Sabtu.",
+        "Berpartisipasi aktif dalam pelaksanaan program kerja sekolah yang sedang berlangsung."
+      ]
+    }
+  },
+  {
+    "category": "OSIS",
+    "number": 2,
+    "name": "Arfa Alfahim & Nafisa Asqiyah Ananta Gunawan",
+    "vision": "Menjadikan OSIS SMK Plus Pelita Nusantara sebagai organisasi yang religius, berintegritas, inspiratif, dan inovatif dalam membentuk siswa yang berkarakter, memiliki jiwa kepemimpinan, serta mampu membawa perubahan positif bagi lingkungan sekolah.",
+    "mission": [
+      "Membangun OSIS yang menjunjung tinggi nilai-nilai religius, toleransi, dan kepedulian sosial.",
+      "Membangun OSIS yang berintegritas melalui sikap jujur, disiplin, dan bertanggung jawab.",
+      "Menciptakan lingkungan sekolah yang mendorong siswa untuk terus belajar, berkembang, dan memberikan inspirasi kepada sesama.",
+      "Menciptakan kegiatan OSIS yang inovatif dan kreatif untuk mengembangkan potensi serta minat bakat siswa.",
+      "Memperkuat rasa persatuan dan kebersamaan antarsiswa melalui kegiatan yang kolaboratif dan positif.",
+      "Menjadikan OSIS sebagai wadah bagi siswa untuk mengembangkan kemampuan kepemimpinan, kreativitas, dan tanggung jawab."
+    ],
+    "workPrograms": {
+      "shortTerm": [
+        "Mengadakan lomba Cerdas Cermat (BRAINIAC — Brainy Competition).",
+        "Mengadakan Classmeeting.",
+        "Mengadakan turnamen E-Sport.",
+        "Mengadakan pentas seni (Mona Fest).",
+        "Mengadakan Seminar OSIS (LEADVERSE — Explore the World of Leadership)."
+      ],
+      "longTerm": [
+        "Memperingati hari-hari besar nasional dan keagamaan.",
+        "Membantu menyukseskan pelaksanaan upacara bendera setiap hari Senin.",
+        "Berpartisipasi aktif dalam setiap program sekolah.",
+        "Menyelenggarakan pemutaran musik pada saat jam istirahat setiap hari Selasa dan Kamis (Music Break)."
+      ]
+    }
+  }
+]
