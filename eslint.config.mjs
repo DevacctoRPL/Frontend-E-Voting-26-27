@@ -7,9 +7,10 @@ export default withNuxt(
   betterTailwindcss.configs['correctness-error'],
   {
     rules: {
-      'vue/singleline-html-element-content-newline': ['error', {
+      'vue/no-multiple-template-root': 'off',
+      'vue/singleline-html-element-content-newline': ['off', {
         ignoreWhenNoAttributes: true,
-        ignoreWhenEmpty: true,
+        ignoreWhenEmpty: true
       }]
     }
   },
