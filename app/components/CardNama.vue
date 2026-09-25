@@ -1,28 +1,48 @@
 <script setup lang="ts">
-defineProps<{
-  candidate: {
-    category: 'MPK' | 'OSIS'
-    name: string
-    number: number
-  }
-}>()
+interface Candidate {
+  number: number
+  ketua: string
+  wakil: string
+}
+
+interface Props {
+  candidate: Candidate
+}
+
+defineProps<Props>()
 </script>
 
 <template>
-  <section class="flex flex-col items-center justify-center gap-3">
-    <span
-      class="text-sm font-semibold uppercase tracking-widest"
-      :class="candidate.category === 'MPK' ? 'text-blue-500' : 'text-green-500'"
+  <header
+    class="flex w-full flex-col gap-2"
+    aria-label="Informasi pasangan calon"
+  >
+    <!-- Candidate Names -->
+    <div
+      class="inline-flex w-fit max-w-full items-center gap-2
+             bg-white px-3 py-2
+             shadow-md"
     >
-      {{ candidate.category }}
-    </span>
+      <h1
+        class="font-sans text-sm font-bold leading-tight text-[#002B63]
+               md:text-base lg:text-lg"
+      >
+        {{ candidate.ketua }}
+      </h1>
 
-    <h2 class="text-2xl font-bold text-CTA-tombol-highlight-utama-200">
-      Paslon {{ candidate.number }}
-    </h2>
+      <span
+        class="font-sans text-sm font-bold text-[#002B63]"
+        aria-hidden="true"
+      >
+        &
+      </span>
 
-    <p class="text-center text-base font-medium text-CTA-tombol-highlight-utama-200/80">
-      {{ candidate.name }}
-    </p>
-  </section>
+      <span
+        class="font-sans text-sm font-bold leading-tight text-[#002B63]
+               md:text-base lg:text-lg"
+      >
+        {{ candidate.wakil }}
+      </span>
+    </div>
+  </header>
 </template>

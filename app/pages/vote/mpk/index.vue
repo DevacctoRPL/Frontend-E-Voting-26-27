@@ -28,7 +28,7 @@ const mpkCandidates = [
 
 <template>
   <main
-    class="min-h-screen bg-[length:100%_100%] bg-no-repeat bg-fixed bg-[#071A33] px-6 py-10 flex flex-col items-center justify-between text-white"
+    class="min-h-screen bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-6 py-10 flex flex-col items-center justify-between text-white"
     style="background-image: url('/background.png')"
   >
     <!-- Header Judul Pemilihan MPK Sesuai Figma Desktop -->
@@ -39,7 +39,7 @@ const mpkCandidates = [
       <h1 class="font-sans font-extrabold text-2xl md:text-4xl text-white tracking-wide">
         CALON KETUA & WAKIL <span class="text-[#58B4FD]">MPK</span>
       </h1>
-      <p class="text-sm md:text-base text-[#AAB7C4] mt-1">
+      <p class="text-sm md:text-base text-Teks-sekunder-icon-non-aktif-500 mt-1">
         Pilih dan pelajari visi misi calon pemimpin pilihanmu
       </p>
     </header>

@@ -1,57 +1,63 @@
 <script setup lang="ts">
 interface Props {
   visi?: string
-  image?: string
 }
 
-withDefaults(defineProps<Props>(), {
-  visi: '',
-  image: ''
+const props = withDefaults(defineProps<Props>(), {
+  visi: ''
 })
 </script>
 
 <template>
-  <div class="relative w-full max-w-[420px] min-h-[300px] pt-7">
-    <!-- Badge Header VISI sesuai Figma Desktop -->
+  <section
+    class="relative w-full max-w-135 pt-3.75"
+    aria-labelledby="visi-title"
+  >
+    <!-- VISI Badge -->
     <div
-      class="absolute top-0 left-6 z-10 flex h-[48px] w-[155px] items-center justify-center rounded-full border-[1.89px] border-[#0674FD] bg-gradient-to-b from-[#06264F] to-[#0776FC] shadow-md"
+      id="visi-title"
+      class="absolute left-6 top-0 z-10
+             flex h-7.5 w-25 items-center justify-center
+             rounded-full
+             border border-[#0674FD]
+             bg-linear-to-b from-[#06264F] to-[#0776FC]
+             shadow-md"
     >
-      <span class="font-sans text-[24px] font-bold tracking-wider text-white">
+      <span class="font-sans text-[16px] font-bold tracking-wide text-white">
         VISI
       </span>
     </div>
 
-    <!-- Kontainer Kartu Visi -->
+    <!-- Card -->
     <div
-      class="flex h-full min-h-[280px] w-full flex-col justify-between rounded-[23px] border-[1.89px] border-[#0674FD] bg-[#072750]/80 p-6 pt-9 text-white shadow-xl backdrop-blur-sm"
+      class="min-h-45 w-full
+             rounded-[14px]
+             border border-[#0674FD]
+             bg-[#072750]/85
+             px-5 pb-4 pt-7
+             text-white
+             shadow-lg
+             backdrop-blur-sm"
     >
-      <!-- Slot / Tempat untuk Foto (jika ada foto yang ingin ditaruh) -->
-      <div v-if="image || $slots.image" class="mb-4 overflow-hidden rounded-xl">
-        <slot name="image">
-          <img
-            v-if="image"
-            :src="image"
-            alt="Foto Visi"
-            class="h-44 w-full object-cover"
-          >
-        </slot>
-      </div>
-      <!-- Tempat kosong cadangan jika ingin menampilkan placeholder foto nanti -->
-      <div
-        v-else-if="$attrs['show-photo-placeholder']"
-        class="mb-4 flex h-36 w-full items-center justify-center rounded-xl border border-dashed border-[#0674FD]/50 bg-[#06264F]/50 text-sm text-[#5CB8FF]"
-      >
-        <span>[Area Foto Visi]</span>
-      </div>
-
-      <!-- Isi Teks Visi -->
+      <!-- Visi Content -->
       <div class="flex-1">
         <slot>
-          <p class="font-sans text-[16px] font-medium leading-[28px] text-white/95 md:text-[18px] md:leading-[30px]">
-            {{ visi }}
+          <p
+            v-if="props.visi"
+            class="font-sans text-[15px] font-medium leading-6
+                   text-white/95 md:text-[16px] md:leading-6.5"
+          >
+            {{ props.visi }}
+          </p>
+
+          <p
+            v-else
+            class="font-sans text-xs italic text-white/60"
+          >
+            Belum ada data visi.
           </p>
         </slot>
       </div>
     </div>
-  </div>
+  </section>
 </template>

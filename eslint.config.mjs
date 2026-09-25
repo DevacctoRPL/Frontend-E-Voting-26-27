@@ -8,7 +8,7 @@ export default withNuxt(
   {
     rules: {
       'vue/no-multiple-template-root': 'off',
-      'vue/singleline-html-element-content-newline': ['off', {
+      'vue/singleline-html-element-content-newline': ['error', {
         ignoreWhenNoAttributes: true,
         ignoreWhenEmpty: true
       }]

@@ -10,7 +10,6 @@ interface Props {
   number?: number | string
   image?: string
   alt?: string
-  category?: 'MPK' | 'OSIS' | string
   size?: 'sm' | 'md' | 'lg'
   names?: CandidateNames
 }
@@ -19,72 +18,100 @@ const props = withDefaults(defineProps<Props>(), {
   number: 1,
   image: '',
   alt: 'Foto Paslon',
-  category: 'MPK',
-  size: 'md',
-  names: undefined
+  size: 'md'
 })
 
 const formattedNumber = computed(() => {
-  const num = typeof props.number === 'string' ? Number.parseInt(props.number, 10) : props.number
-  if (Number.isNaN(num)) {
+  const number = typeof props.number === 'string'
+    ? Number.parseInt(props.number, 10)
+    : props.number
+
+  if (Number.isNaN(number)) {
     return props.number
   }
-  return num < 10 ? `0${num}` : `${num}`
+
+  return number.toString().padStart(2, '0')
 })
 
 const cardDimensions = computed(() => {
   switch (props.size) {
     case 'sm':
-      return 'w-[190px] h-[270px]'
+      return 'h-[270px] w-[190px]'
+
     case 'lg':
-      return 'w-[280px] md:w-[310px] h-[390px] md:h-[440px]'
+      return 'h-[390px] w-[280px] md:h-[440px] md:w-[310px]'
+
     case 'md':
     default:
-      return 'w-[230px] md:w-[260px] h-[330px] md:h-[380px]'
+      return 'h-[330px] w-[230px] md:h-[380px] md:w-[260px]'
   }
 })
 </script>
 
 <template>
-  <div class="relative inline-flex flex-col items-center group select-none">
-    <!-- Kontainer Kartu Foto Utama -->
-    <div class="relative pt-3 pr-3">
-      <!-- Badge Nomor Paslon (Top-Right Floating Circle) -->
+  <div
+    class="group relative inline-flex select-none flex-col items-center"
+  >
+    <!-- Photo Card -->
+    <div class="relative pr-3 pt-3">
+      <!-- Candidate Number -->
       <div
-        class="absolute top-0 right-0 z-20 flex items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-[#072750] to-[#0776FD] shadow-[0_0_12px_rgba(255,255,255,0.95)]"
-        :class="size === 'sm' ? 'w-10 h-10 text-base' : 'w-12 h-12 md:w-14 md:h-14 text-lg md:text-xl'"
+        class="absolute right-0 top-0 z-20 flex items-center justify-center
+               rounded-full border-2 border-white
+               bg-linear-to-br from-[#072750] to-[#0776FD]
+               shadow-[0_0_12px_rgba(255,255,255,0.95)]"
+        :class="
+          props.size === 'sm'
+            ? 'h-10 w-10 text-base'
+            : 'h-12 w-12 text-lg md:h-14 md:w-14 md:text-xl'
+        "
       >
-        <span class="font-sans font-extrabold text-white tracking-tight">
+        <span class="font-sans font-extrabold tracking-tight text-white">
           {{ formattedNumber }}
         </span>
       </div>
 
-      <!-- Bingkai Kartu Asimetris Sesuai Figma Desktop -->
+      <!-- Photo Frame -->
       <div
-        class="relative overflow-hidden rounded-tl-lg rounded-br-lg rounded-tr-[65px] md:rounded-tr-[78px] rounded-bl-[32px] md:rounded-bl-[39px] border-[3px] md:border-[3.5px] border-white bg-gradient-to-tr from-[#0775FE] to-[#59B5FE] shadow-[0_0_14px_3px_rgba(255,255,255,0.85)] transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(89,181,254,0.95)]"
+        class="relative overflow-hidden
+               rounded-bl-[39px] rounded-br-lg rounded-tl-lg rounded-tr-[65px]
+               border-[3px] border-white
+               bg-linear-to-tr from-[#0775FE] to-[#59B5FE]
+               shadow-[0_0_14px_3px_rgba(255,255,255,0.85)]
+               transition-all duration-300
+               group-hover:shadow-[0_0_20px_5px_rgba(89,181,254,0.95)]"
         :class="cardDimensions"
       >
-        <!-- Slot / Tag Gambar Foto Paslon -->
+        <!-- Image Slot -->
         <slot name="image">
           <img
-            v-if="image"
-            :src="image"
-            :alt="alt"
-            class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            v-if="props.image"
+            :src="props.image"
+            :alt="props.alt"
+            class="h-full w-full object-cover object-top
+                   transition-transform duration-500
+                   group-hover:scale-105"
           >
 
-          <!-- Placeholder saat foto belum tersedia -->
+          <!-- Image Placeholder -->
           <div
             v-else
-            class="flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-b from-[#0775FE]/40 to-[#072750]/80 p-4 text-center text-white/90"
+            class="flex h-full w-full flex-col items-center justify-center
+                   gap-3 bg-linear-to-b from-[#0775FE]/40 to-[#072750]/80
+                   p-4 text-center text-white/90"
           >
-            <div class="flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-white/10 shadow-inner backdrop-blur-xs">
+            <div
+              class="flex h-16 w-16 items-center justify-center
+                     rounded-full border border-white/40
+                     bg-white/10 shadow-inner backdrop-blur-xs"
+            >
               <svg
                 class="h-8 w-8 text-white/80"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 stroke-width="1.8"
+                aria-hidden="true"
               >
                 <path
                   stroke-linecap="round"
@@ -93,56 +120,80 @@ const cardDimensions = computed(() => {
                 />
               </svg>
             </div>
-            <div class="text-xs md:text-sm font-semibold tracking-wide text-white/80">
+
+            <span
+              class="text-xs font-semibold tracking-wide text-white/80 md:text-sm"
+            >
               Area Foto Paslon {{ formattedNumber }}
-            </div>
+            </span>
           </div>
         </slot>
 
-        <!-- Overlay Vignette Gradasi Bawah -->
-        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#071A33]/80 via-transparent to-transparent" />
+        <!-- Bottom Vignette -->
+        <div
+          class="pointer-events-none absolute inset-x-0 bottom-0 h-20
+                 bg-linear-to-t from-[#072750]/80 via-transparent to-transparent"
+        />
       </div>
     </div>
 
-    <!-- Informasi Nama & Kelas (Opsional, jika prop names disediakan) -->
+    <!-- Candidate Names -->
     <div
-      v-if="names && (names.ketua || names.wakil)"
+      v-if="props.names?.ketua || props.names?.wakil"
       class="mt-4 flex w-full flex-col gap-2"
     >
-      <!-- Baris Ketua -->
+      <!-- Ketua -->
       <div
-        v-if="names.ketua"
-        class="flex items-center justify-between rounded-tl-2xl bg-white px-3 py-1.5 shadow-[0_4px_8px_rgba(0,0,0,0.25)]"
+        v-if="props.names.ketua"
+        class="flex items-center justify-between
+               rounded-tl-2xl bg-white px-3 py-1.5
+               shadow-[0_4px_8px_rgba(0,0,0,0.25)]"
       >
-        <span class="truncate font-sans text-xs md:text-sm font-bold text-[#00224F]">
-          {{ names.ketua }}
-        </span>
         <span
-          v-if="names.ketuaClass"
-          class="ml-2 shrink-0 rounded bg-gradient-to-b from-[#0076FF] to-[#00224F] px-2 py-0.5 font-sans text-[10px] md:text-xs font-bold text-white shadow-xs"
+          class="truncate font-sans text-xs font-bold text-[#00224F] md:text-sm"
         >
-          {{ names.ketuaClass }}
+          {{ props.names.ketua }}
+        </span>
+
+        <span
+          v-if="props.names.ketuaClass"
+          class="ml-2 shrink-0 rounded
+                 bg-linear-to-b from-[#0076FF] to-[#00224F]
+                 px-2 py-0.5
+                 font-sans text-[10px] font-bold text-white
+                 shadow-xs md:text-xs"
+        >
+          {{ props.names.ketuaClass }}
         </span>
       </div>
 
-      <!-- Baris Wakil -->
+      <!-- Wakil -->
       <div
-        v-if="names.wakil"
-        class="flex items-center justify-between rounded-tl-2xl bg-white px-3 py-1.5 shadow-[0_4px_8px_rgba(0,0,0,0.25)]"
+        v-if="props.names.wakil"
+        class="flex items-center justify-between
+               rounded-tl-2xl bg-white px-3 py-1.5
+               shadow-[0_4px_8px_rgba(0,0,0,0.25)]"
       >
-        <span class="truncate font-sans text-xs md:text-sm font-bold text-[#00224F]">
-          {{ names.wakil }}
-        </span>
         <span
-          v-if="names.wakilClass"
-          class="ml-2 shrink-0 rounded bg-gradient-to-b from-[#0076FF] to-[#00224F] px-2 py-0.5 font-sans text-[10px] md:text-xs font-bold text-white shadow-xs"
+          class="truncate font-sans text-xs font-bold text-[#00224F] md:text-sm"
         >
-          {{ names.wakilClass }}
+          {{ props.names.wakil }}
+        </span>
+
+        <span
+          v-if="props.names.wakilClass"
+          class="ml-2 shrink-0 rounded
+                 bg-linear-to-b from-[#0076FF] to-[#00224F]
+                 px-2 py-0.5
+                 font-sans text-[10px] font-bold text-white
+                 shadow-xs md:text-xs"
+        >
+          {{ props.names.wakilClass }}
         </span>
       </div>
     </div>
 
-    <!-- Slot Tambahan untuk Tombol atau Konten Khusus di Bawah Kartu -->
+    <!-- Optional Footer -->
     <slot name="footer" />
   </div>
 </template>

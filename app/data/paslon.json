@@ -2,7 +2,8 @@
   {
     "category": "MPK",
     "number": 1,
-    "name": "Syaira Ramadina Maulana & Eza Vandino",
+    "ketua": "Syaira Ramadina Maulana",
+    "wakil": "Eza Vandino",
     "vision": "Mewujudkan MPK sebagai tempat berkembang dan menyalurkan aspirasi siswa secara partisipatif, bertanggung jawab, serta amanah, sekaligus menjadi penghubung antara siswa dan OSIS untuk menciptakan kerja sama yang baik.",
     "mission": [
       "Mendengar — Menampung dan memperjuangkan aspirasi siswa.",
@@ -43,7 +44,8 @@
   {
     "category": "MPK",
     "number": 2,
-    "name": "Keisya Widya Ayuningrum Andico & Anastasya Putri Rahmawati",
+    "ketua": "Keisya Widya Ayuningrum Andico",
+    "wakil": "Anastasya Putri Rahmawati",
     "vision": "Mewujudkan MPK yang aspiratif, kritis, bertanggung jawab, dan transparan sebagai wadah perwakilan siswa serta mampu membangun sinergi bersama OSIS dalam menciptakan lingkungan sekolah yang aktif, demokratis, dan berintegritas.",
     "mission": [
       "Meningkatkan fungsi legislasi MPK.",
@@ -73,7 +75,8 @@
   {
     "category": "OSIS",
     "number": 1,
-    "name": "Kevin Mahardika Kumaeni & Kamila Siti Aryna",
+    "ketua": "Kevin Mahardika Kumaeni",
+    "wakil": "Kamila Siti Aryna",
     "vision": "Mewujudkan OSIS SMK Plus Pelita Nusantara yang berintegritas, inspiratif, kooperatif, dan berkarakter PINTER (Progressive, Innovative, Nurturing, Tactful, Empowering, Religius) untuk membentuk siswa/i yang siap berkembang dan memberi dampak positif bagi lingkungan sekitar.",
     "mission": [
       "Menjadikan OSIS SMK Plus Pelita Nusantara yang bertakwa terhadap Tuhan YME serta menjunjung tinggi toleransi antarumat beragama.",
@@ -101,7 +104,8 @@
   {
     "category": "OSIS",
     "number": 2,
-    "name": "Arfa Alfahim & Nafisa Asqiyah Ananta Gunawan",
+    "ketua": "Arfa Alfahim",
+    "wakil": "Nafisa Asqiyah Ananta Gunawan",
     "vision": "Menjadikan OSIS SMK Plus Pelita Nusantara sebagai organisasi yang religius, berintegritas, inspiratif, dan inovatif dalam membentuk siswa yang berkarakter, memiliki jiwa kepemimpinan, serta mampu membawa perubahan positif bagi lingkungan sekolah.",
     "mission": [
       "Membangun OSIS yang menjunjung tinggi nilai-nilai religius, toleransi, dan kepedulian sosial.",

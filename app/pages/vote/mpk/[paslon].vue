@@ -40,7 +40,8 @@ const nextRoute = computed(() => {
       <CardNama
         :candidate="{
           category: 'MPK',
-          name: currentCandidate.name,
+          ketua: currentCandidate.ketua,
+          wakil: currentCandidate.wakil,
           number: currentCandidate.number
         }"
       />
@@ -66,20 +67,20 @@ const nextRoute = computed(() => {
 
     <!-- Tombol Aksi Navigasi Sesuai Figma -->
     <footer class="flex items-center gap-6 mt-8">
-      <Button
+      <NuxtLink
         to="/vote/mpk"
         variant="secondary"
         size="md"
       >
         KEMBALI
-      </Button>
-      <Button
+      </NuxtLink>
+      <NuxtLink
         :to="nextRoute"
         variant="primary"
         size="md"
       >
         NEXT
-      </Button>
+      </NuxtLink>
     </footer>
   </main>
 </template>
