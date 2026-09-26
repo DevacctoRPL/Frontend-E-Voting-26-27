@@ -1,21 +1,21 @@
 <script setup lang="ts">
 interface Props {
-  misi?: string[] | string
+  mission?: string[] | string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  misi: () => []
+  mission: () => []
 })
 
-const misiList = computed(() => {
-  if (Array.isArray(props.misi)) {
-    return props.misi
+const missionList = computed(() => {
+  if (Array.isArray(props.mission)) {
+    return props.mission
       .map(item => item.trim())
       .filter(Boolean)
   }
 
-  if (typeof props.misi === 'string') {
-    return props.misi
+  if (typeof props.mission === 'string') {
+    return props.mission
       .split('\n')
       .map(item => item.trim())
       .filter(Boolean)
@@ -24,19 +24,19 @@ const misiList = computed(() => {
   return []
 })
 
-const cleanMissionText = (mission: string) => {
-  return mission.replace(/^\d+\.\s*/, '')
+const cleanMissionText = (missionText: string) => {
+  return missionText.replace(/^\d+\.\s*/, '')
 }
 </script>
 
 <template>
   <section
     class="relative w-full max-w-135 pt-3.75"
-    aria-labelledby="misi-title"
+    aria-labelledby="mission-title"
   >
     <!-- MISI Badge -->
     <div
-      id="misi-title"
+      id="mission-title"
       class="absolute left-6 top-0 z-10
              flex h-7.5 w-25 items-center justify-center
              rounded-full
@@ -63,12 +63,12 @@ const cleanMissionText = (mission: string) => {
              backdrop-blur-sm"
     >
       <ol
-        v-if="misiList.length"
+        v-if="missionList.length"
         class="space-y-0.5"
       >
         <li
-          v-for="(mission, index) in misiList"
-          :key="`${index}-${mission}`"
+          v-for="(missionText, index) in missionList"
+          :key="`${index}-${missionText}`"
           class="flex items-start gap-1.5
                  font-sans text-[11px] font-medium
                  leading-[1.35] text-white"
@@ -81,7 +81,7 @@ const cleanMissionText = (mission: string) => {
           </span>
 
           <span>
-            {{ cleanMissionText(mission) }}
+            {{ cleanMissionText(missionText) }}
           </span>
         </li>
       </ol>

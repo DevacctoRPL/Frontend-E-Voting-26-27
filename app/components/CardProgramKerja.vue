@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import type { WorkProgramItem } from '~/types/candidate'
+
 interface Props {
-  shortTerm?: string[]
-  longTerm?: string[]
+  shortTerm?: WorkProgramItem[]
+  longTerm?: WorkProgramItem[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -9,8 +11,11 @@ const props = withDefaults(defineProps<Props>(), {
   longTerm: () => []
 })
 
-const cleanWorkProgramsText = (Workprograms: string) => {
-  return Workprograms.replace(/^\d+\.\s*/, '').trim()
+const cleanWorkProgramsText = (workProgram: WorkProgramItem) => {
+  if (typeof workProgram === 'string') {
+    return workProgram.replace(/^\d+\.\s*/, '').trim()
+  }
+  return workProgram.name
 }
 </script>
 
@@ -72,11 +77,11 @@ const cleanWorkProgramsText = (Workprograms: string) => {
                    md:text-[13px]"
           >
             <li
-              v-for="(Workprograms, index) in props.shortTerm"
-              :key="`short-${index}-${Workprograms}`"
+              v-for="(workProgram, index) in props.shortTerm"
+              :key="`short-${index}-${workProgram}`"
               class="pl-1"
             >
-              {{ cleanWorkProgramsText(Workprograms) }}
+              {{ cleanWorkProgramsText(workProgram) }}
             </li>
           </ol>
 
@@ -106,11 +111,11 @@ const cleanWorkProgramsText = (Workprograms: string) => {
                    md:text-[13px]"
           >
             <li
-              v-for="(Workprograms, index) in props.longTerm"
-              :key="`long-${index}-${Workprograms}`"
+              v-for="(workProgram, index) in props.longTerm"
+              :key="`long-${index}-${workProgram}`"
               class="pl-1"
             >
-              {{ cleanWorkProgramsText(Workprograms) }}
+              {{ cleanWorkProgramsText(workProgram) }}
             </li>
           </ol>
 

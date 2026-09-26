@@ -1,21 +1,21 @@
 <script setup lang="ts">
 interface Props {
-  visi?: string
+  vision?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  visi: ''
+  vision: ''
 })
 </script>
 
 <template>
   <section
     class="relative w-full max-w-135 pt-3.75"
-    aria-labelledby="visi-title"
+    aria-labelledby="vision-title"
   >
     <!-- VISI Badge -->
     <div
-      id="visi-title"
+      id="vision-title"
       class="absolute left-6 top-0 z-10
              flex h-7.5 w-25 items-center justify-center
              rounded-full
@@ -43,11 +43,11 @@ const props = withDefaults(defineProps<Props>(), {
       <div class="flex-1">
         <slot>
           <p
-            v-if="props.visi"
+            v-if="props.vision"
             class="font-sans text-[15px] font-medium leading-6
                    text-white/95 md:text-[16px] md:leading-6.5"
           >
-            {{ props.visi }}
+            {{ props.vision }}
           </p>
 
           <p
