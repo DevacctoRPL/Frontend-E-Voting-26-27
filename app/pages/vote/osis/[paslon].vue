@@ -27,7 +27,7 @@ const nextTarget = computed(() => {
     return '/vote/osis/vote'
   }
 
-  return `/vote/osis/paslon0${otherNumber}?next=vote`
+  return `/vote/osis/paslon0${otherNumber}`
 })
 </script>
 
@@ -40,7 +40,8 @@ const nextTarget = computed(() => {
 
     <nav class="my-6 md:my-8 flex items-center justify-center gap-6">
       <ButtonVote
-        to="/vote/osis"
+        v-if="otherNumber == 1"
+        to="/vote/osis/paslon01"
         variant="back"
         size="md"
       >
@@ -48,10 +49,15 @@ const nextTarget = computed(() => {
       </ButtonVote>
 
       <ButtonVote
+        v-if="otherNumber == 2"
         :to="nextTarget"
         variant="next"
         size="md"
       >
+        NEXT
+      </ButtonVote>
+
+      <ButtonVote v-else to="/vote/osis" variant="next" size="md">
         NEXT
       </ButtonVote>
     </nav>

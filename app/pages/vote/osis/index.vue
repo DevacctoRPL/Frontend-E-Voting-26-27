@@ -1,80 +1,85 @@
 <script setup lang="ts">
-interface CandidatePick {
-  slug: string
-  number: number
-  image: string
-  ketua: string
-  wakil: string
+interface VoteCandidate {
+  number: number;
+  image: string;
+  ketua: string;
+  ketuaClass: string;
+  wakil: string;
+  wakilClass: string;
 }
 
-const osisCandidates: CandidatePick[] = [
+const candidates: VoteCandidate[] = [
   {
-    slug: 'paslon01',
     number: 1,
-    image: '/images/paslon/osis/paslon01.png',
-    ketua: 'Kevin Mahardika Kumaeni',
-    wakil: 'Kamila Siti Aryna'
+    image: "/images/paslon/osis/paslon01.png",
+    ketua: "Kevin Mahardika Kumaeni",
+    ketuaClass: "XI RPL 1",
+    wakil: "Kamila Siti Aryna",
+    wakilClass: "XI DKV 2",
   },
   {
-    slug: 'paslon02',
     number: 2,
-    image: '/images/paslon/osis/paslon02.png',
-    ketua: 'Arfa Alfahim',
-    wakil: 'Nafisa Asqiyah Ananta Gunawan'
-  }
-]
+    image: "/images/paslon/osis/paslon02.png",
+    ketua: "Nafisa Asqiyah Ananta Gunawan",
+    ketuaClass: "XI RPL 1",
+    wakil: "Arfa Alfahim",
+    wakilClass: "XI RPL 1",
+  },
+];
+
+const handleVote = () => {
+  navigateTo("/vote/success");
+};
 </script>
 
 <template>
   <main
-    class="flex min-h-screen flex-col items-center justify-between bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-6 py-10 text-white"
-    style="background-image: url('/background.png')"
+    class="flex min-h-screen flex-col items-center justify-between bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-4 py-6 text-white md:px-6 md:py-8"
+    style="background-image: url(&quot;/background.png&quot;)"
   >
-    <header class="my-4 flex flex-col items-center gap-1 text-center">
-      <h2 class="font-sans text-lg font-bold tracking-wider text-white md:text-2xl">
+    <header
+      class="relative flex w-full flex-col items-center gap-1.5 px-4 py-4 md:py-6"
+    >
+      <div
+        class="absolute inset-x-0 top-0 h-19 bg-linear-to-r from-[#59B4FD]/0 via-[#59B4FD]/70 to-[#59B4FD]/0"
+      />
+
+      <h1
+        class="relative z-10 text-center font-['Poppins',sans-serif] text-[16px] font-bold leading-tight text-white [text-shadow:0_1.96px_1.96px_rgba(0,0,0,0.25)] md:text-2xl lg:text-[30px]"
+      >
         SMK
         <span class="text-[#57B3FC]">PLUS</span>
         PELITA NUSANTARA
-      </h2>
-      <h1 class="text-2xl font-extrabold tracking-wide text-white md:text-4xl">
-        CALON KETUA & WAKIL
-        <span class="text-[#58B4FD]">OSIS</span>
       </h1>
-      <p class="mt-1 text-sm text-Teks-sekunder-icon-non-aktif-500 md:text-base">
-        Pilih dan pelajari visi misi calon pemimpin pilihanmu
-      </p>
+
+      <h2
+        class="relative z-10 text-center font-['Poppins',sans-serif] text-[17px] font-bold leading-tight text-white [text-shadow:0_1.96px_1.96px_rgba(0,0,0,0.25)] md:text-3xl lg:text-[32px]"
+      >
+        KETUA & WAKIL
+        <span class="text-[#58B4FD]">OSIS</span>
+      </h2>
     </header>
 
-    <section class="my-8 flex flex-col items-center justify-center gap-10 md:flex-row md:gap-16">
-      <div
-        v-for="candidate in osisCandidates"
+    <section
+      class="flex w-full max-w-5xl flex-1 flex-row flex-wrap items-start justify-center gap-4 px-6 py-8 sm:gap-8 md:flex-nowrap md:gap-16"
+    >
+      <VotePaslon
+        v-for="candidate in candidates"
         :key="candidate.number"
-        class="flex flex-col items-center gap-5"
-      >
-        <CardFoto
-          :number="candidate.number"
-          :image="candidate.image"
-          :alt="`Foto pasangan calon ${candidate.ketua} & ${candidate.wakil}`"
-          size="md"
-        />
-
-        <ButtonVote
-          :to="`/vote/osis/${candidate.slug}`"
-          variant="secondary"
-          size="sm"
-        >
-          DETAIL & VISI
-        </ButtonVote>
-      </div>
+        :number="candidate.number"
+        :image="candidate.image"
+        :alt="`Foto pasangan calon ${candidate.ketua} & ${candidate.wakil}`"
+        :ketua="candidate.ketua"
+        :ketua-class="candidate.ketuaClass"
+        :wakil="candidate.wakil"
+        :wakil-class="candidate.wakilClass"
+        @vote="handleVote"
+      />
     </section>
 
-    <footer class="mt-6">
-      <ButtonVote
-        to="/"
-        variant="back"
-        size="md"
-      >
-        KEMBALI
+    <footer class="flex justify-center px-6 pb-8">
+      <ButtonVote to="/vote/osis/paslon02" variant="back" size="md">
+        BACK
       </ButtonVote>
     </footer>
   </main>
