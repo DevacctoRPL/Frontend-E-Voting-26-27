@@ -1,92 +1,80 @@
 <script setup lang="ts">
-// Data calon MPK yang disesuaikan dengan data Figma dan data/paslon.json
-const mpkCandidates = [
+interface VoteCandidate {
+  number: number
+  slug: string
+  image: string
+  ketua: string
+  ketuaClass: string
+  wakil: string
+  wakilClass: string
+}
+
+const candidates: VoteCandidate[] = [
   {
-    slug: 'paslon01',
     number: 1,
-    image: '/images/paslon/paslon01.png',
-    names: {
-      ketua: 'Syaira Ramadina Maulana',
-      ketuaClass: 'XI RPL 1',
-      wakil: 'Eza Vrandino',
-      wakilClass: 'XI DKV 3'
-    }
+    slug: 'paslon01',
+    image: '/images/paslon/mpk/paslon01.png',
+    ketua: 'Syaira Ramadina Maulana',
+    ketuaClass: 'XI RPL 1',
+    wakil: 'Eza Vrandino',
+    wakilClass: 'XI DKV 3'
   },
   {
-    slug: 'paslon02',
     number: 2,
-    image: '/images/paslon/paslon02.png',
-    names: {
-      ketua: 'Keisya Widya Ayuningrum Andico',
-      ketuaClass: 'XI DKV 1',
-      wakil: 'Anastasya Putri Rahmawati',
-      wakilClass: 'XI LPB 2'
-    }
+    slug: 'paslon02',
+    image: '/images/paslon/mpk/paslon02.png',
+    ketua: 'Keisya Widya Ayuningrum Andico',
+    ketuaClass: 'XI DKV 1',
+    wakil: 'Anastasya Putri Rahmawati',
+    wakilClass: 'XI LPB 2'
   }
 ]
+
+const handleVote = () => {
+  navigateTo('/vote/osis/paslon01')
+}
 </script>
 
 <template>
-  <main
-    class="min-h-screen bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-6 py-10 flex flex-col items-center justify-between text-white"
-    style="background-image: url('/background.png')"
-  >
-    <!-- Header Judul Pemilihan MPK Sesuai Figma Desktop -->
-    <header class="flex flex-col items-center text-center gap-1 my-4">
-      <h2 class="font-sans font-bold text-lg md:text-2xl tracking-wider text-white">
-        SMK <span class="text-[#57B3FC]">PLUS</span> PELITA NUSANTARA
-      </h2>
-      <h1 class="font-sans font-extrabold text-2xl md:text-4xl text-white tracking-wide">
-        CALON KETUA & WAKIL <span class="text-[#58B4FD]">MPK</span>
+  <main class="flex min-h-screen flex-col items-center bg-white">
+    <header class="relative flex w-full flex-col items-center gap-1.5 px-4 py-4 md:py-6">
+      <div class="absolute inset-x-0 top-0 h-19 bg-linear-to-r from-[#59B4FD]/0 via-[#59B4FD]/70 to-[#59B4FD]/0" />
+
+      <h1 class="relative z-10 text-center font-['Poppins',sans-serif] text-[16px] font-bold leading-tight text-white [text-shadow:0_1.96px_1.96px_rgba(0,0,0,0.25)] md:text-2xl lg:text-[30px]">
+        SMK
+        <span class="text-[#57B3FC]">PLUS</span>
+        PELITA NUSANTARA
       </h1>
-      <p class="text-sm md:text-base text-Teks-sekunder-icon-non-aktif-500 mt-1">
-        Pilih dan pelajari visi misi calon pemimpin pilihanmu
-      </p>
+
+      <h2 class="relative z-10 text-center font-['Poppins',sans-serif] text-[17px] font-bold leading-tight text-white [text-shadow:0_1.96px_1.96px_rgba(0,0,0,0.25)] md:text-3xl lg:text-[32px]">
+        KETUA & WAKIL
+        <span class="text-[#58B4FD]">MPK</span>
+      </h2>
     </header>
 
-    <!-- Kontainer Kartu Paslon (Berdampingan di Desktop) -->
-    <section class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 my-8">
-      <div
-        v-for="candidate in mpkCandidates"
+    <section class="flex w-full max-w-5xl flex-1 flex-row flex-wrap items-start justify-center gap-4 px-6 py-8 sm:gap-8 md:flex-nowrap md:gap-16">
+      <VotePaslon
+        v-for="candidate in candidates"
         :key="candidate.number"
-        class="flex flex-col items-center gap-5"
-      >
-        <!-- Komponen Kartu Foto Asimetris Glowing -->
-        <CardFoto
-          :number="candidate.number"
-          :image="candidate.image"
-          :names="candidate.names"
-          size="md"
-        />
-
-        <!-- Tombol Aksi: Lihat Profil & Tombol Vote -->
-        <div class="flex items-center gap-3">
-          <Button
-            :to="`/vote/mpk/${candidate.slug}`"
-            variant="secondary"
-            size="sm"
-          >
-            DETAIL & VISI
-          </Button>
-          <Button
-            variant="primary"
-            size="sm"
-          >
-            VOTE
-          </Button>
-        </div>
-      </div>
+        :number="candidate.number"
+        :image="candidate.image"
+        :alt="`Foto pasangan calon ${candidate.ketua} & ${candidate.wakil}`"
+        :ketua="candidate.ketua"
+        :ketua-class="candidate.ketuaClass"
+        :wakil="candidate.wakil"
+        :wakil-class="candidate.wakilClass"
+        @vote="handleVote"
+      />
     </section>
 
-    <!-- Tombol Navigasi Kembali -->
-    <footer class="mt-6">
-      <Button
-        to="/vote"
-        variant="secondary"
+    <footer class="flex justify-center px-6 pb-8">
+      <ButtonVote
+        to="/vote/mpk/paslon02"
+        variant="back"
         size="md"
       >
-        KEMBALI
-      </Button>
+        BACK
+      </ButtonVote>
     </footer>
   </main>
 </template>
