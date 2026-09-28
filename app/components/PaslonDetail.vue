@@ -34,8 +34,8 @@ defineProps<Props>()
     </div>
 
     <CardProgramKerja
-      :short-term="candidate.workPrograms?.shortTerm"
-      :long-term="candidate.workPrograms?.longTerm"
+      :short-term="candidate.workPrograms.shortTerm"
+      :long-term="candidate.workPrograms.longTerm"
     />
   </article>
 </template>

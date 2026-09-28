@@ -1,5 +1,5 @@
 import type { ApiErrorResponse, ApiSuccessResponse, PaginatedResponse } from '~/types/api'
-import type { Candidate, CandidateCreatePayload } from '~/types/candidate'
+import type { Candidate, CandidateCreatePayload } from '~/types/candidate';
 import type { LoginCredentials, LoginResponse, User } from '~/types/user'
 import type { VotePayload, VoteResponse } from '~/types/vote'
 
@@ -10,8 +10,8 @@ export const useApi = () => {
 
   const getHeaders = () => {
     const headers: Record<string, string> = {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     }
 
     const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
@@ -28,7 +28,7 @@ export const useApi = () => {
   ): Promise<T> => {
     return await $fetch<T>(buildUrl(path), {
       headers: getHeaders(),
-      ...options
+      ...options,
     })
   }
 
@@ -37,36 +37,36 @@ export const useApi = () => {
       login: (credentials: LoginCredentials) =>
         request<ApiSuccessResponse<LoginResponse> | ApiErrorResponse>('/login', {
           method: 'POST',
-          body: credentials
+          body: credentials,
         }),
       logout: () =>
         request<ApiSuccessResponse<null> | ApiErrorResponse>('/logout', {
-          method: 'POST'
+          method: 'POST',
         }),
       me: () =>
         request<ApiSuccessResponse<User> | ApiErrorResponse>('/me', {
-          method: 'GET'
-        })
+          method: 'GET',
+        }),
     },
     pemilihanUmum: {
       index: () =>
         request<ApiSuccessResponse<PaginatedResponse<Candidate>> | ApiErrorResponse>('/pemilihan-umum', {
-          method: 'GET'
-        })
+          method: 'GET',
+        }),
     },
     kandidat: {
       create: (payload: CandidateCreatePayload) =>
         request<ApiSuccessResponse<Candidate> | ApiErrorResponse>('/kandidat', {
           method: 'POST',
-          body: payload
-        })
+          body: payload,
+        }),
     },
     vote: {
       submit: (payload: VotePayload) =>
         request<ApiSuccessResponse<VoteResponse['data']> | ApiErrorResponse>('/vote', {
           method: 'POST',
-          body: payload
-        })
-    }
+          body: payload,
+        }),
+    },
   }
 }
