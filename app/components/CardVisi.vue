@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
     </div>
 
     <div
-      class="min-h-45 w-full rounded-[12px] md:rounded-[14px] border-[1.89px] border-[#0674FD] bg-[#072750]/82 px-5 pb-4 pt-7 text-white shadow-lg backdrop-blur-sm"
+      class="min-h-45 w-full rounded-xl md:rounded-[14px] border-[1.89px] border-[#0674FD] bg-[#072750]/82 px-5 pb-4 pt-7 text-white shadow-lg backdrop-blur-sm"
     >
       <div class="flex-1">
         <slot>

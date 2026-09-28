@@ -1,9 +1,5 @@
 <script setup lang="ts">
-interface Candidate {
-  number: number
-  ketua: string
-  wakil: string
-}
+import type { Candidate } from '~/types/candidate'
 
 interface Props {
   candidate: Candidate

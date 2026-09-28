@@ -44,7 +44,7 @@ const cleanMissionText = (missionText: string) => {
     </div>
 
     <div
-      class="min-h-45 w-full rounded-[12px] md:rounded-[14px] border-[1.89px] border-[#0674FD] bg-[#072750]/82 px-5 pb-4 pt-7 text-white shadow-lg backdrop-blur-sm"
+      class="min-h-45 w-full rounded-xl md:rounded-[14px] border-[1.89px] border-[#0674FD] bg-[#072750]/82 px-5 pb-4 pt-7 text-white shadow-lg backdrop-blur-sm"
     >
       <ol
         v-if="missionList.length"
