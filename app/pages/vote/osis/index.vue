@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { submit } = useVote()
+
 interface VoteCandidate {
   number: number;
   image: string;
@@ -27,9 +29,14 @@ const candidates: VoteCandidate[] = [
   },
 ];
 
-const handleVote = () => {
-  navigateTo("/vote/success");
-};
+const handleVote = async (candidateNumber: number) => {
+  await submit({
+    kandidat_id: candidateNumber + 2,
+    pemilihan_umum_id: 1,
+  })
+
+  navigateTo('/vote/success')
+}
 </script>
 
 <template>

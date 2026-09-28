@@ -5,12 +5,16 @@ import type { VotePayload, VoteResponse } from '~/types/vote'
 
 export const useApi = () => {
   const config = useRuntimeConfig()
-  const BASE_URL = (config.public.apiBaseUrl as string | undefined) ?? ''
-  const buildUrl = (path: string) => `${BASE_URL.replace(/\/$/, '')}${path}`
+  const BASE_URL = (config.public.apiBaseUrl as string | undefined) ?? 'http://localhost:8000/api'
+  const buildUrl = (path: string) => {
+    const cleanBase = BASE_URL.replace(/\/+$/, '')
+    const cleanPath = path.startsWith('/') ? path : `/${path}`
+    return `${cleanBase}${cleanPath}`
+  }
 
   const getHeaders = () => {
     const headers: Record<string, string> = {
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     }
 
@@ -27,6 +31,7 @@ export const useApi = () => {
     options: Record<string, unknown> = {}
   ): Promise<T> => {
     return await $fetch<T>(buildUrl(path), {
+      credentials: 'include',
       headers: getHeaders(),
       ...options
     })
@@ -46,19 +51,6 @@ export const useApi = () => {
       me: () =>
         request<ApiSuccessResponse<User> | ApiErrorResponse>('/me', {
           method: 'GET'
-        })
-    },
-    pemilihanUmum: {
-      index: () =>
-        request<ApiSuccessResponse<PaginatedResponse<Candidate>> | ApiErrorResponse>('/pemilihan-umum', {
-          method: 'GET'
-        })
-    },
-    kandidat: {
-      create: (payload: CandidateCreatePayload) =>
-        request<ApiSuccessResponse<Candidate> | ApiErrorResponse>('/kandidat', {
-          method: 'POST',
-          body: payload
         })
     },
     vote: {

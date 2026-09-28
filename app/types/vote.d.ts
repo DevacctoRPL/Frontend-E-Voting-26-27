@@ -1,13 +1,9 @@
 export type VoteCategory = 'MPK' | 'OSIS'
 
 export interface VotePayload {
-  category: VoteCategory
-  candidateNumber: number
-  candidate_id?: number | string
-  pemilihan_umum_id?: number | string
-  user_id?: number | string
-  voterNis?: string
-  nis?: string
+  kandidat_id: number | string
+  pemilihan_umum_id: number | string
+
 }
 
 export interface VoteResponse {

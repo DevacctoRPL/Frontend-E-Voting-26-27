@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<{
-  vote: []
+  vote: [number: number]
 }>()
 
 const formattedNumber = computed(() => {
@@ -84,7 +84,7 @@ const formattedNumber = computed(() => {
       variant="vote"
       size="md"
       class="mt-1"
-      @click="emit('vote')"
+      @click="emit('vote', Number(props.number))"
     >
       VOTE
     </ButtonVote>

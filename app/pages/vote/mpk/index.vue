@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { submit } = useVote()
+
 interface VoteCandidate {
   number: number
   image: string
@@ -27,7 +29,12 @@ const candidates: VoteCandidate[] = [
   }
 ]
 
-const handleVote = () => {
+const handleVote = async (candidateNumber: number) => {
+  await submit({
+    kandidat_id: candidateNumber,
+    pemilihan_umum_id: 2,
+  })
+
   navigateTo('/vote/osis/paslon01')
 }
 </script>
