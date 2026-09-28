@@ -1,7 +1,7 @@
 <script setup lang="ts">
 await navigateTo("/vote/mpk/paslon01", {
   replace: true,
-});
+})
 </script>
 
 <template>

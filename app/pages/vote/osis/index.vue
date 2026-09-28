@@ -2,37 +2,37 @@
 const { submit } = useVote()
 
 interface VoteCandidate {
-  number: number;
-  image: string;
-  ketua: string;
-  ketuaClass: string;
-  wakil: string;
-  wakilClass: string;
+  number: number
+  image: string
+  ketua: string
+  ketuaClass: string
+  wakil: string
+  wakilClass: string
 }
 
 const candidates: VoteCandidate[] = [
   {
     number: 1,
-    image: "/images/paslon/osis/paslon01.png",
-    ketua: "Kevin Mahardika Kumaeni",
-    ketuaClass: "XI RPL 1",
-    wakil: "Kamila Siti Aryna",
-    wakilClass: "XI DKV 2",
+    image: '/images/paslon/osis/paslon01.png',
+    ketua: 'Kevin Mahardika Kumaeni',
+    ketuaClass: 'XI RPL 1',
+    wakil: 'Kamila Siti Aryna',
+    wakilClass: 'XI DKV 2'
   },
   {
     number: 2,
-    image: "/images/paslon/osis/paslon02.png",
-    ketua: "Nafisa Asqiyah Ananta Gunawan",
-    ketuaClass: "XI RPL 1",
-    wakil: "Arfa Alfahim",
-    wakilClass: "XI RPL 1",
-  },
-];
+    image: '/images/paslon/osis/paslon02.png',
+    ketua: 'Nafisa Asqiyah Ananta Gunawan',
+    ketuaClass: 'XI RPL 1',
+    wakil: 'Arfa Alfahim',
+    wakilClass: 'XI RPL 1'
+  }
+]
 
 const handleVote = async (candidateNumber: number) => {
   await submit({
     kandidat_id: candidateNumber + 2,
-    pemilihan_umum_id: 1,
+    pemilihan_umum_id: 1
   })
 
   navigateTo('/vote/success')
@@ -44,27 +44,27 @@ const handleVote = async (candidateNumber: number) => {
     class="flex min-h-screen flex-col items-center justify-between bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-4 py-6 text-white md:px-6 md:py-8"
     style="background-image: url(&quot;/background.png&quot;)"
   >
-    <header
-      class="relative flex w-full flex-col items-center gap-1.5 px-4 py-4 md:py-6"
-    >
-      <div
-        class="absolute inset-x-0 top-0 h-19 bg-linear-to-r from-[#59B4FD]/0 via-[#59B4FD]/70 to-[#59B4FD]/0"
-      />
+    <header class="flex w-full justify-center px-4 py-4 md:py-6">
+      <!-- Wrapper container tightly bounding the titles -->
+      <div class="relative flex flex-col items-center gap-1 px-8 py-2">
+        <!-- Glow Background (Constrained to the wrapper) -->
+        <div
+          class="absolute inset-0 bg-linear-to-r from-[#59B4FD]/0 via-[#59B4FD]/70 to-[#59B4FD]/0"
+        />
 
-      <h1
-        class="relative z-10 text-center font-['Poppins',sans-serif] text-[16px] font-bold leading-tight text-white [text-shadow:0_1.96px_1.96px_rgba(0,0,0,0.25)] md:text-2xl lg:text-[30px]"
-      >
-        SMK
-        <span class="text-[#57B3FC]">PLUS</span>
-        PELITA NUSANTARA
-      </h1>
+        <h1
+          class="relative z-10 text-center font-['Poppins',sans-serif] text-[16px] font-bold leading-tight text-white [text-shadow:0_1.96px_1.96px_rgba(0,0,0,0.25)] md:text-2xl lg:text-[30px]"
+        >
+          KETUA & WAKIL
+          <span class="text-[#57B3FC]">OSIS</span>
+        </h1>
 
-      <h2
-        class="relative z-10 text-center font-['Poppins',sans-serif] text-[17px] font-bold leading-tight text-white [text-shadow:0_1.96px_1.96px_rgba(0,0,0,0.25)] md:text-3xl lg:text-[32px]"
-      >
-        KETUA & WAKIL
-        <span class="text-[#58B4FD]">OSIS</span>
-      </h2>
+        <h2
+          class="relative z-10 text-center font-['Poppins',sans-serif] text-[17px] font-bold leading-tight text-white [text-shadow:0_1.96px_1.96px_rgba(0,0,0,0.25)] md:text-3xl lg:text-[32px]"
+        >
+          SMK <span class="text-[#58B4FD]">PLUS</span> PELITA NUSANTARA
+        </h2>
+      </div>
     </header>
 
     <section
@@ -85,7 +85,11 @@ const handleVote = async (candidateNumber: number) => {
     </section>
 
     <footer class="flex justify-center px-6 pb-8">
-      <ButtonVote to="/vote/osis/paslon02" variant="back" size="md">
+      <ButtonVote
+        to="/vote/osis/paslon02"
+        variant="back"
+        size="md"
+      >
         BACK
       </ButtonVote>
     </footer>

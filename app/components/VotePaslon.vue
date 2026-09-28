@@ -31,7 +31,7 @@ const formattedNumber = computed(() => {
 </script>
 
 <template>
-  <article class="flex w-[155px] sm:w-[175px] md:w-[260px] lg:w-[290px] xl:w-[320px] flex-col items-center gap-3 sm:gap-4 md:gap-5">
+  <article class="flex w-38.75 sm:w-43.75 md:w-65 lg:w-72.5 xl:w-[320px] flex-col items-center gap-3 sm:gap-4 md:gap-5">
     <!-- Photo Card -->
     <div class="relative w-full pr-2 pt-2 md:pr-3 md:pt-3">
       <!-- Candidate Number -->
@@ -45,7 +45,7 @@ const formattedNumber = computed(() => {
 
       <!-- Photo Frame -->
       <div
-        class="relative aspect-[5/7] w-full overflow-hidden rounded-tl-none rounded-br-none rounded-tr-[50px] rounded-bl-[25px] border-2 border-white bg-linear-to-tr from-[#0776FE] to-[#59B5FE] shadow-[0_0_6px_2px_rgba(255,255,255,1)] md:rounded-tr-[79px] md:rounded-bl-[39px] md:border-[3px] md:shadow-[0_0_9.4px_3.1px_rgba(255,255,255,1)]"
+        class="relative aspect-5/7 w-full overflow-hidden border-2 border-white bg-linear-to-tr from-[#0776FE] to-[#59B5FE] shadow-[0_0_6px_2px_rgba(255,255,255,1)] md:rounded-tr-none md:rounded-bl-none md:rounded-tl-[79px] md:rounded-br-[50px] md:shadow-[0_0_9.4px_3.1px_rgba(255,255,255,1)]"
       >
         <img
           :src="image"

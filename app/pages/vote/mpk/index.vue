@@ -32,7 +32,7 @@ const candidates: VoteCandidate[] = [
 const handleVote = async (candidateNumber: number) => {
   await submit({
     kandidat_id: candidateNumber,
-    pemilihan_umum_id: 2,
+    pemilihan_umum_id: 2
   })
 
   navigateTo('/vote/osis/paslon01')
@@ -42,24 +42,34 @@ const handleVote = async (candidateNumber: number) => {
 <template>
   <main
     class="flex min-h-screen flex-col items-center justify-between bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-4 py-6 text-white md:px-6 md:py-8"
-    style="background-image: url('/background.png')"
+    style="background-image: url(&quot;/background.png&quot;)"
   >
-    <header class="relative flex w-full flex-col items-center gap-1.5 px-4 py-4 md:py-6">
-      <div class="absolute inset-x-0 top-0 h-19 bg-linear-to-r from-[#59B4FD]/0 via-[#59B4FD]/70 to-[#59B4FD]/0" />
+    <header class="flex w-full justify-center px-4 py-4 md:py-6">
+      <!-- Wrapper container tightly bounding the titles -->
+      <div class="relative flex flex-col items-center gap-1 px-8 py-2">
+        <!-- Glow Background (Constrained to the wrapper) -->
+        <div
+          class="absolute inset-0 bg-linear-to-r from-[#59B4FD]/0 via-[#59B4FD]/70 to-[#59B4FD]/0"
+        />
 
-      <h1 class="relative z-10 text-center font-['Poppins',sans-serif] text-[16px] font-bold leading-tight text-white [text-shadow:0_1.96px_1.96px_rgba(0,0,0,0.25)] md:text-2xl lg:text-[30px]">
-        SMK
-        <span class="text-[#57B3FC]">PLUS</span>
-        PELITA NUSANTARA
-      </h1>
+        <h1
+          class="relative z-10 text-center font-['Poppins',sans-serif] text-[16px] font-bold leading-tight text-white [text-shadow:0_1.96px_1.96px_rgba(0,0,0,0.25)] md:text-2xl lg:text-[30px]"
+        >
+          KETUA & WAKIL
+          <span class="text-[#57B3FC]">MPK</span>
+        </h1>
 
-      <h2 class="relative z-10 text-center font-['Poppins',sans-serif] text-[17px] font-bold leading-tight text-white [text-shadow:0_1.96px_1.96px_rgba(0,0,0,0.25)] md:text-3xl lg:text-[32px]">
-        KETUA & WAKIL
-        <span class="text-[#58B4FD]">MPK</span>
-      </h2>
+        <h2
+          class="relative z-10 text-center font-['Poppins',sans-serif] text-[17px] font-bold leading-tight text-white [text-shadow:0_1.96px_1.96px_rgba(0,0,0,0.25)] md:text-3xl lg:text-[32px]"
+        >
+          SMK <span class="text-[#58B4FD]">PLUS</span> PELITA NUSANTARA
+        </h2>
+      </div>
     </header>
 
-    <section class="flex w-full max-w-5xl flex-1 flex-row flex-wrap items-start justify-center gap-4 px-6 py-8 sm:gap-8 md:flex-nowrap md:gap-16">
+    <section
+      class="flex w-full max-w-5xl flex-1 flex-row flex-wrap items-start justify-center gap-4 px-6 py-8 sm:gap-8 md:flex-nowrap md:gap-16"
+    >
       <VotePaslon
         v-for="candidate in candidates"
         :key="candidate.number"

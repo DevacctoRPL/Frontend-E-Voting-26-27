@@ -74,9 +74,7 @@ const cardDimensions = computed(() => {
       <!-- Photo Frame -->
       <div
         class="relative overflow-hidden
-               rounded-tl-none rounded-br-none
-               rounded-tr-[50px] rounded-bl-[25px]
-               md:rounded-tr-[98px] md:rounded-bl-[49px]
+               md:rounded-tr-none md:rounded-bl-none md:rounded-tl-[79px] md:rounded-br-[50px]
                border-2 md:border-[3.5px] border-white
                bg-linear-to-tr from-[#0775FE] to-[#59B5FE]
                shadow-[0_0_8px_2px_rgba(255,255,255,0.9)] md:shadow-[0_0_12px_4px_rgba(255,255,255,1)]
