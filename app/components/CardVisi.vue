@@ -10,33 +10,35 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <section
-    class="relative w-full max-w-135 pt-3.75"
+    class="relative flex h-full w-full flex-col pt-3.5 md:pt-6"
     aria-labelledby="vision-title"
   >
+    <!-- Badge Visi -->
     <div
       id="vision-title"
-      class="absolute left-6 top-0 z-10 flex h-7.5 md:h-10 w-22 md:w-32 items-center justify-center rounded-[17.5px] md:rounded-[33px] border-[1.89px] border-[#0674FD] bg-linear-to-b from-[#06264F] to-[#0776FC] shadow-md"
+      class="absolute left-6 md:left-8 top-0 z-10 flex h-[25px] w-[81px] md:h-[47px] md:w-[153px] items-center justify-center rounded-[17.5px] md:rounded-[33px] border md:border-[1.89px] border-[#0674FD] bg-linear-to-b from-[#06264F] to-[#0776FC] shadow-md"
     >
-      <span class="font-['Poppins',sans-serif] text-[15px] md:text-[18px] font-bold tracking-wider text-white uppercase">
+      <span class="font-['Poppins',sans-serif] text-[13px] md:text-[24px] lg:text-[27px] font-bold tracking-wider text-white uppercase leading-none">
         VISI
       </span>
     </div>
 
+    <!-- Content Box -->
     <div
-      class="min-h-45 w-full rounded-xl md:rounded-[14px] border-[1.89px] border-[#0674FD] bg-[#072750]/82 px-5 pb-4 pt-7 text-white shadow-lg backdrop-blur-sm"
+      class="flex flex-1 w-full flex-col justify-start rounded-[12px] md:rounded-[23px] border md:border-[1.89px] border-[#0674FD] bg-[#072750]/82 px-4 pb-4 pt-5 md:px-7 md:pb-6 md:pt-9 text-white shadow-lg backdrop-blur-sm"
     >
       <div class="flex-1">
         <slot>
           <p
             v-if="props.vision"
-            class="font-sans text-[15px] font-medium leading-6 text-white/95 md:text-[16px] md:leading-6.5"
+            class="font-['Poppins',sans-serif] text-[10.5px] font-medium leading-[16.5px] text-white/95 sm:text-xs md:text-[18px] lg:text-[19.5px] md:leading-[28px] lg:leading-[31px]"
           >
             {{ props.vision }}
           </p>
 
           <p
             v-else
-            class="font-sans text-xs italic text-Teks-sekunder-icon-non-aktif-500"
+            class="font-['Poppins',sans-serif] text-xs italic text-Teks-sekunder-icon-non-aktif-500"
           >
             Belum ada data visi.
           </p>

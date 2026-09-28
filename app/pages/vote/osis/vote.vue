@@ -33,7 +33,10 @@ const handleVote = () => {
 </script>
 
 <template>
-  <main class="flex min-h-screen flex-col items-center bg-white">
+  <main
+    class="flex min-h-screen flex-col items-center justify-between bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-4 py-6 text-white md:px-6 md:py-8"
+    style="background-image: url('/background.png')"
+  >
     <header class="relative flex w-full flex-col items-center gap-1.5 px-4 py-4 md:py-6">
       <div class="absolute inset-x-0 top-0 h-19 bg-linear-to-r from-[#59B4FD]/0 via-[#59B4FD]/70 to-[#59B4FD]/0" />
 

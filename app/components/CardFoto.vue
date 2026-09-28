@@ -4,13 +4,15 @@ interface Props {
   image?: string
   alt?: string
   size?: 'sm' | 'md' | 'lg'
+  cardClass?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   number: 1,
   image: '',
   alt: 'Foto pasangan calon',
-  size: 'md'
+  size: 'md',
+  cardClass: ''
 })
 
 const formattedNumber = computed(() => {
@@ -26,16 +28,20 @@ const formattedNumber = computed(() => {
 })
 
 const cardDimensions = computed(() => {
+  if (props.cardClass) {
+    return props.cardClass
+  }
+
   switch (props.size) {
     case 'sm':
-      return 'h-[270px] w-[190px]'
+      return 'h-[195px] w-[135px] sm:h-[225px] sm:w-[155px]'
 
     case 'lg':
-      return 'h-[390px] w-[280px] md:h-[440px] md:w-[310px]'
+      return 'h-[340px] w-[240px] md:h-[390px] md:w-[270px] lg:h-[430px] lg:w-[290px]'
 
     case 'md':
     default:
-      return 'h-[330px] w-[230px] md:h-[380px] md:w-[260px]'
+      return 'h-[270px] w-[190px] sm:h-[320px] sm:w-[225px] md:h-[375px] md:w-[260px]'
   }
 })
 </script>
@@ -45,21 +51,21 @@ const cardDimensions = computed(() => {
     class="group relative inline-flex select-none flex-col items-center"
   >
     <!-- Photo Card -->
-    <div class="relative pr-3 pt-3">
+    <div class="relative pr-2 pt-2 md:pr-3 md:pt-3">
       <!-- Candidate Number -->
       <div
         class="absolute right-0 top-0 z-20 flex items-center justify-center
                rounded-full border-2 border-white
                bg-linear-to-br from-[#072750] to-[#0776FD]
-               shadow-[0_0_12px_rgba(255,255,255,0.95)]"
+               shadow-[0_0_10px_rgba(255,255,255,0.95)] md:shadow-[0_0_13px_rgba(255,255,255,1)]"
         :class="
           props.size === 'sm'
-            ? 'h-10 w-10 text-base'
-            : 'h-12 w-12 text-lg md:h-14 md:w-14 md:text-xl'
+            ? 'h-7 w-7 text-xs sm:h-8 sm:w-8'
+            : 'h-9 w-9 text-sm sm:h-11 sm:w-11 md:h-14 md:w-14 md:text-2xl'
         "
       >
         <span
-          class="font-sans font-extrabold tracking-tight text-white"
+          class="font-['Poppins',sans-serif] font-extrabold tracking-tight text-white leading-none"
         >
           {{ formattedNumber }}
         </span>
@@ -68,12 +74,14 @@ const cardDimensions = computed(() => {
       <!-- Photo Frame -->
       <div
         class="relative overflow-hidden
-               rounded-bl-[39px] rounded-br-lg rounded-tl-lg rounded-tr-[65px]
-               border-[3px] border-white
+               rounded-tl-none rounded-br-none
+               rounded-tr-[50px] rounded-bl-[25px]
+               md:rounded-tr-[98px] md:rounded-bl-[49px]
+               border-2 md:border-[3.5px] border-white
                bg-linear-to-tr from-[#0775FE] to-[#59B5FE]
-               shadow-[0_0_14px_3px_rgba(255,255,255,0.85)]
+               shadow-[0_0_8px_2px_rgba(255,255,255,0.9)] md:shadow-[0_0_12px_4px_rgba(255,255,255,1)]
                transition-all duration-300
-               group-hover:shadow-[0_0_20px_5px_rgba(89,181,254,0.95)]"
+               group-hover:shadow-[0_0_18px_5px_rgba(89,181,254,0.95)]"
         :class="cardDimensions"
       >
         <!-- Candidate Image -->

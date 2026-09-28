@@ -1,6 +1,44 @@
+<script setup lang="ts">
+import type { Candidate } from '~/types/candidate'
+import paslonData from '~/data/paslon.json'
+
+const route = useRoute()
+
+const paslonNumber = Number(
+  String(route.params.paslon).replace('paslon', '')
+)
+
+const candidate = paslonData.find(
+  item =>
+    item.category === 'OSIS' && item.number === paslonNumber
+) as Candidate | undefined
+
+if (!candidate) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Pasangan calon OSIS tidak ditemukan'
+  })
+}
+
+const otherNumber = 3 - paslonNumber
+
+const nextTarget = computed(() => {
+  if (route.query.next === 'vote') {
+    return '/vote/osis/vote'
+  }
+
+  return `/vote/osis/paslon0${otherNumber}?next=vote`
+})
+</script>
+
 <template>
-  <main class="flex min-h-screen flex-col items-center justify-center gap-6 bg-white px-6 py-10 text-center">
-    <nav class="flex items-center justify-center gap-4">
+  <main
+    class="flex min-h-screen flex-col items-center justify-between bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-4 py-6 md:px-8 md:py-10 text-white"
+    style="background-image: url('/background.png')"
+  >
+    <PaslonDetail :candidate="candidate" />
+
+    <nav class="my-6 md:my-8 flex items-center justify-center gap-6">
       <ButtonVote
         to="/vote/osis"
         variant="back"
@@ -10,7 +48,7 @@
       </ButtonVote>
 
       <ButtonVote
-        to="/vote/osis/vote"
+        :to="nextTarget"
         variant="next"
         size="md"
       >

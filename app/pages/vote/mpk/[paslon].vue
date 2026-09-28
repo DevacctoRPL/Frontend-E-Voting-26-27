@@ -32,10 +32,13 @@ const nextTarget = computed(() => {
 </script>
 
 <template>
-  <main class="flex min-h-screen flex-col items-center bg-white px-6 py-8">
+  <main
+    class="flex min-h-screen flex-col items-center justify-between bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-4 py-6 md:px-8 md:py-10 text-white"
+    style="background-image: url('/background.png')"
+  >
     <PaslonDetail :candidate="candidate" />
 
-    <nav class="mt-8 flex items-center justify-center gap-4">
+    <nav class="my-6 md:my-8 flex items-center justify-center gap-6">
       <ButtonVote
         to="/vote/mpk"
         variant="back"
