@@ -11,7 +11,7 @@ const organizations = [
     name: 'OSIS',
     route: '/vote/osis',
     bgcolor: '#FFF178'
-  },
+  }
 ]
 </script>
 
@@ -38,17 +38,17 @@ const organizations = [
       <div
         v-for="organization in organizations"
         :key="organization.name"
-        class="flex flex-col items-center gap-5">
+        class="flex flex-col items-center gap-5"
+      >
         <!-- Komponen Kartu Foto Asimetris Glowing -->
-         <NuxtLink :to="organization.route">
-        <CardOrganisasi
-          :logo="organization.logo"
-          :name="organization.name"
-          :bgcolor="organization.bgcolor"
-          size="md"
-        />
+        <NuxtLink :to="organization.route">
+          <CardOrganisasi
+            :logo="organization.logo"
+            :name="organization.name"
+            :bgcolor="organization.bgcolor"
+            size="md"
+          />
         </NuxtLink>
-
       </div>
     </section>
   </main>
