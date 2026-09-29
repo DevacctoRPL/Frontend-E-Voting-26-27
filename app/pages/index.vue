@@ -1,5 +1,5 @@
 <script setup lang="ts">
-await navigateTo("/vote/mpk/paslon01", {
+await navigateTo('/login', {
   replace: true,
 })
 </script>
