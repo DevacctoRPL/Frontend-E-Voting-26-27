@@ -13,6 +13,7 @@
   "dependencies": {
     "@iconify-json/lucide": "^1.2.134",
     "@iconify-json/simple-icons": "^1.2.96",
+    "@nuxt/icon": "^2.5.1",
     "@tailwindcss/vite": "^4.3.3",
     "dotenv": "^18.0.4",
     "nuxt": "^4.5.2",

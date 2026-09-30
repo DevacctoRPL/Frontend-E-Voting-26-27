@@ -94,7 +94,7 @@ const sizeClasses = computed(() => {
     ]"
     @click="handleClick"
   >
-    <UIcon
+    <Icon
       v-if="icon"
       :name="icon"
       class="size-4.5 shrink-0"
@@ -102,7 +102,7 @@ const sizeClasses = computed(() => {
     <span>
       <slot>VOTE</slot>
     </span>
-    <UIcon
+    <Icon
       v-if="trailingIcon"
       :name="trailingIcon"
       class="size-4.5 shrink-0"
@@ -122,13 +122,13 @@ const sizeClasses = computed(() => {
     ]"
     @click="handleClick"
   >
-    <UIcon
+    <Icon
       v-if="loading"
       name="i-lucide-loader-2"
       class="size-4.5 animate-spin shrink-0"
     />
 
-    <UIcon
+    <Icon
       v-else-if="icon"
       :name="icon"
       class="size-4.5 shrink-0"
@@ -138,7 +138,7 @@ const sizeClasses = computed(() => {
       <slot>VOTE</slot>
     </span>
 
-    <UIcon
+    <Icon
       v-if="trailingIcon && !loading"
       :name="trailingIcon"
       class="size-4.5 shrink-0"
