@@ -18,10 +18,19 @@ export interface LoginCredentials {
   password: string
 }
 
-export interface LoginResponse {
+export interface VotingStatus {
+  sudah_vote_mpk?: boolean
+  sudah_vote_osis?: boolean
+}
+
+export interface AuthResponse {
   token?: string
   message?: string
   user?: User
+  status_pemilihan?: VotingStatus
+}
+
+export interface LoginResponse extends AuthResponse {
 }
 
 export interface AuthSession {

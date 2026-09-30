@@ -1,5 +1,28 @@
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'auth'
+})
+
 const { submit } = useVote()
+const { getVotingStatus, markVoteComplete } = useAuth()
+
+onMounted(async () => {
+  try {
+    const status = await getVotingStatus()
+
+    if (status?.sudah_vote_osis && status?.sudah_vote_mpk) {
+      await navigateTo('/vote/success')
+      return
+    } else if (status?.sudah_vote_mpk == false){
+      await navigateTo('/vote/mpk/paslon01')
+      return
+    } else {
+      return
+    }
+  } catch {
+    return
+  }
+})
 
 interface VoteCandidate {
   number: number
@@ -30,12 +53,17 @@ const candidates: VoteCandidate[] = [
 ]
 
 const handleVote = async (candidateNumber: number) => {
-  await submit({
+  const response = await submit({
     kandidat_id: candidateNumber + 2,
     pemilihan_umum_id: 1
   })
 
-  navigateTo('/vote/success')
+  if (!('data' in response)) {
+    return
+  }
+
+  markVoteComplete('osis')
+  await navigateTo('/vote/success')
 }
 </script>
 

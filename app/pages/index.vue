@@ -5,7 +5,5 @@ await navigateTo('/login', {
 </script>
 
 <template>
-  <div>
-    <NuxtLink to="/vote/mpk">Login</NuxtLink>
-  </div>
+  kevin
 </template>

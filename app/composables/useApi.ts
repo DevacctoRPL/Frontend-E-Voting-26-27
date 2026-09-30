@@ -1,6 +1,6 @@
 import type { ApiErrorResponse, ApiSuccessResponse, PaginatedResponse } from '~/types/api'
 import type { Candidate, CandidateCreatePayload } from '~/types/candidate'
-import type { LoginCredentials, LoginResponse, User } from '~/types/user'
+import type { AuthResponse, LoginCredentials, LoginResponse, User } from '~/types/user'
 import type { VotePayload, VoteResponse } from '~/types/vote'
 
 export const useApi = () => {
@@ -49,7 +49,7 @@ export const useApi = () => {
           method: 'POST'
         }),
       me: () =>
-        request<ApiSuccessResponse<User> | ApiErrorResponse>('/me', {
+        request<ApiSuccessResponse<AuthResponse> | ApiErrorResponse>('/me', {
           method: 'GET'
         })
     },

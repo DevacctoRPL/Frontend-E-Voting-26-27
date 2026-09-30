@@ -1,13 +1,27 @@
 <script setup lang="ts">
-const { login } = useAuth()
+const { login, isAuthenticated, getVotingStatus } = useAuth()
 
-const nama = ref('')
 const nis = ref('')
+const password = ref('')
 const loading = ref(false)
 const errorMessage = ref('')
 
 useHead({
   title: 'Login - E-Voting SMK Plus Pelita Nusantara'
+})
+
+onMounted(async () => {
+  if (isAuthenticated()) {
+    const status = await getVotingStatus()
+
+    if (status?.sudah_vote_mpk && status.sudah_vote_osis) {
+      await navigateTo('/vote/success')
+    } else if (status?.sudah_vote_mpk) {
+      await navigateTo('/vote/osis/paslon01')
+    } else {
+      await navigateTo('/vote/mpk/paslon01')
+    }
+  }
 })
 
 const handleLogin = async () => {
@@ -22,18 +36,32 @@ const handleLogin = async () => {
   try {
     const res = await login({
       nis: nis.value,
-      password: nis.value
+      password: password.value
     })
 
-    if (res && 'errors' in res && res.errors) {
-      errorMessage.value = typeof res.message === 'string' ? res.message : 'Login gagal'
+    if (!('data' in res)) {
+      errorMessage.value = res.message || res.error || 'Login gagal'
       return
     }
 
-    await navigateTo('/vote/mpk')
+    if (!isAuthenticated()) {
+      errorMessage.value = res.message || 'Login gagal'
+      return
+    }
+
+    if (res.data.status_pemilihan?.sudah_vote_mpk && res.data.status_pemilihan.sudah_vote_osis) {
+      await navigateTo('/vote/success')
+      return
+    } else if(res.data.status_pemilihan?.sudah_vote_mpk) {
+      await navigateTo('/vote/osis/paslon01')
+      return
+    } else {
+      await navigateTo('/vote/mpk/paslon01')
+      return
+    }
+
   } catch {
-    // Fallback navigasi jika backend belum terhubung
-    await navigateTo('/vote/mpk')
+    errorMessage.value = 'Login gagal. Periksa koneksi Anda dan coba lagi.'
   } finally {
     loading.value = false
   }
@@ -70,17 +98,16 @@ const handleLogin = async () => {
         <!-- Field NAMA -->
         <div class="w-full flex flex-col items-center gap-1.5">
           <label
-            for="nama"
+            for="nis"
             class="font-['Inter',sans-serif] font-medium italic text-[#58B4FD] text-[20px] md:text-[24px] select-none"
           >
-            NAMA
+            NIS/NIG
           </label>
           <input
             id="nama"
-            v-model="nama"
+            v-model="nis"
             type="text"
             required
-            autocomplete="name"
             class="w-full h-[39px] rounded-full bg-white text-[#072750] px-5 font-['Inter',sans-serif] font-medium text-[15px] outline-none text-center shadow-[0_2px_8px_rgba(0,0,0,0.15)] focus:ring-2 focus:ring-[#58B4FD] transition-all"
           />
         </div>
@@ -88,17 +115,16 @@ const handleLogin = async () => {
         <!-- Field NIS/NIG -->
         <div class="w-full flex flex-col items-center gap-1.5">
           <label
-            for="nis"
+            for="password"
             class="font-['Inter',sans-serif] font-medium italic text-[#58B4FD] text-[20px] md:text-[24px] select-none"
           >
-            NIS/NIG
+            PASSWORD
           </label>
           <input
-            id="nis"
-            v-model="nis"
-            type="text"
+            id="password"
+            v-model="password"
+            type="password"
             required
-            autocomplete="username"
             class="w-full h-[39px] rounded-full bg-white text-[#072750] px-5 font-['Inter',sans-serif] font-medium text-[15px] outline-none text-center shadow-[0_2px_8px_rgba(0,0,0,0.15)] focus:ring-2 focus:ring-[#58B4FD] transition-all"
           />
         </div>

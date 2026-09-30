@@ -1,5 +1,5 @@
 import type { ApiErrorResponse, ApiSuccessResponse } from '~/types/api'
-import type { LoginCredentials, LoginResponse, User } from '~/types/user'
+import type { AuthResponse, LoginCredentials, LoginResponse, User, VotingStatus } from '~/types/user'
 
 const isSuccessResponse = <T>(
   response: ApiSuccessResponse<T> | ApiErrorResponse
@@ -17,6 +17,7 @@ export const useAuth = () => {
   })
 
   const user = useState<User | null>('auth.user', () => null)
+  const votingStatus = useState<VotingStatus | null>('auth.votingStatus', () => null)
 
   const setSession = (session?: Partial<LoginResponse>) => {
     const nextToken = session?.token ?? null
@@ -30,6 +31,9 @@ export const useAuth = () => {
     }
 
     token.value = nextToken
+    votingStatus.value = session?.status_pemilihan
+      ? { ...session.status_pemilihan }
+      : null
 
     if (session?.user) {
       user.value = session.user
@@ -39,6 +43,7 @@ export const useAuth = () => {
   const clearSession = () => {
     token.value = null
     user.value = null
+    votingStatus.value = null
 
     if (import.meta.client) {
       localStorage.removeItem('token')
@@ -64,21 +69,49 @@ export const useAuth = () => {
   const me = async () => {
     const response = await api.auth.me()
 
-    if (isSuccessResponse<User>(response)) {
-      user.value = response.data
+    if (isSuccessResponse<AuthResponse>(response)) {
+      user.value = response.data.user ?? null
+      votingStatus.value = response.data.status_pemilihan ?? {}
     }
 
     return response
   }
 
-  const isAuthenticated = () => Boolean(token.value || user.value)
+  const getVotingStatus = async () => {
+    if (votingStatus.value) {
+      return votingStatus.value
+    }
+
+    const response = await me()
+    return isSuccessResponse<AuthResponse>(response)
+      ? votingStatus.value
+      : null
+  }
+
+  const markVoteComplete = (category: 'mpk' | 'osis') => {
+    votingStatus.value = {
+      sudah_vote_mpk: false,
+      sudah_vote_osis: false,
+      ...votingStatus.value,
+      [category === 'mpk' ? 'sudah_vote_mpk' : 'sudah_vote_osis']: true
+    }
+  }
+
+  const isAuthenticated = () => Boolean(
+    token.value ||
+    user.value ||
+    (import.meta.client && localStorage.getItem('token'))
+  )
 
   return {
     token,
     user,
+    votingStatus,
     login,
     logout,
     me,
+    getVotingStatus,
+    markVoteComplete,
     clearSession,
     isAuthenticated
   }
