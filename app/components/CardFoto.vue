@@ -87,8 +87,8 @@ const cardDimensions = computed(() => {
       <!-- Photo Frame -->
       <div
         class="relative overflow-hidden
-               rounded-tr-[50px] md:rounded-tr-[80px] lg:rounded-tr-[98px]
-               rounded-bl-[25px] md:rounded-bl-[40px] lg:rounded-bl-[49px]
+               rounded-tl-[50px] md:rounded-tl-[80px] lg:rounded-tl-[98px]
+               rounded-br-[25px] md:rounded-br-[40px] lg:rounded-br-[49px]
                border-2 md:border-[3.5px] border-white
                bg-linear-to-tr from-[#0775FE] to-[#59B5FE]
                shadow-[0_0_8px_2px_rgba(255,255,255,0.9)] md:shadow-[0_0_12px_4px_rgba(255,255,255,1)]

@@ -55,7 +55,7 @@ const handleLogin = async () => {
 
 <template>
   <main
-    class="relative min-h-screen w-full flex flex-col justify-between items-center bg-cover bg-center bg-no-repeat px-4 py-8 overflow-y-auto"
+    class="relative min-h-screen w-full flex flex-col justify-between items-center bg-size-[100%_100%] bg-center bg-no-repeat px-4 py-8 overflow-y-auto"
     style="background-image: url('/background.png')"
   >
     <!-- Top Header: Logo OSIS, SMK, MPK, KPU Pill -->

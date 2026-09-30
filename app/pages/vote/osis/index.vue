@@ -103,6 +103,5 @@ const handleVote = async (candidateNumber: number) => {
         BACK
       </ButtonVote>
     </footer>
-
   </main>
 </template>

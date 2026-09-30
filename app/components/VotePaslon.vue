@@ -31,61 +31,63 @@ const formattedNumber = computed(() => {
 </script>
 
 <template>
-  <article class="flex w-[145px] sm:w-[175px] md:w-65 lg:w-72.5 xl:w-[310px] flex-col items-center gap-2.5 sm:gap-4 md:gap-5">
+  <article
+    class="flex w-[145px] sm:w-[175px] md:w-65 lg:w-72.5 xl:w-[310px] flex-col items-center gap-2.5 sm:gap-4 md:gap-5">
     <!-- Photo Card -->
     <div class="relative w-full pr-1.5 pt-1.5 md:pr-3 md:pt-3">
       <!-- Candidate Number -->
       <div
-        class="absolute right-0 top-0 z-20 flex h-7 w-7 sm:h-8 sm:w-8 md:h-12 md:w-12 xl:h-13 xl:w-13 items-center justify-center rounded-full border-2 border-white bg-linear-to-br from-[#072750] to-[#0776FD] shadow-[0_0_8px_rgba(255,255,255,0.95)] md:shadow-[0_0_12px_rgba(255,255,255,1)]"
-      >
-        <span class="font-poppins text-[11px] sm:text-xs md:text-lg xl:text-xl font-extrabold tracking-tight text-white leading-none">
+        class="absolute right-0 top-0 z-20 flex h-7 w-7 sm:h-8 sm:w-8 md:h-12 md:w-12 xl:h-13 xl:w-13 items-center justify-center rounded-full border-2 border-white bg-linear-to-br from-[#072750] to-[#0776FD] shadow-[0_0_8px_rgba(255,255,255,0.95)] md:shadow-[0_0_12px_rgba(255,255,255,1)]">
+        <span
+          class="font-poppins text-[11px] sm:text-xs md:text-lg xl:text-xl font-extrabold tracking-tight text-white leading-none">
           {{ formattedNumber }}
         </span>
       </div>
 
       <!-- Photo Frame -->
       <div
-        class="relative aspect-5/7 w-full overflow-hidden border-2 md:border-[3px] border-white bg-linear-to-tr from-[#0776FE] to-[#59B5FE] shadow-[0_0_6px_2px_rgba(255,255,255,1)] rounded-tr-[50px] md:rounded-tr-[78px] rounded-bl-[25px] md:rounded-bl-[39px] md:shadow-[0_0_9.4px_3.1px_rgba(255,255,255,1)]"
-      >
-        <img
-          :src="image"
-          :alt="alt"
-          class="h-full w-full object-cover object-top"
-        >
-        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-linear-to-t from-[#072750]/80 via-transparent to-transparent" />
+        class="relative aspect-5/7 w-full overflow-hidden border-2 md:border-[3px] border-white bg-linear-to-tr from-[#0776FE] to-[#59B5FE] shadow-[0_0_6px_2px_rgba(255,255,255,1)] rounded-tl-[50px] md:rounded-tl-[78px] rounded-br-[25px] md:rounded-br-[39px] md:shadow-[0_0_9.4px_3.1px_rgba(255,255,255,1)]">
+        <img :src="image" :alt="alt" class="h-full w-full object-cover object-top">
+        <div
+          class="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-linear-to-t from-[#072750]/80 via-transparent to-transparent" />
       </div>
     </div>
 
     <!-- Name & Class Information -->
-    <div class="flex w-full flex-col gap-1.5 md:gap-2.5">
+    <div class="flex w-full flex-col gap-7">
       <!-- Ketua -->
-      <div class="flex h-6 sm:h-7 md:h-9 lg:h-10 w-full items-center justify-between rounded-tl-lg md:rounded-tl-[17.6px] bg-white pl-2 pr-1.5 md:pl-3 md:pr-2 shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:shadow-[0_8.8px_8.8px_rgba(0,0,0,0.25)]">
-        <span class="truncate bg-linear-to-b from-[#00224F] to-[#004EB5] bg-clip-text font-poppins text-[8.5px] font-bold leading-none text-transparent sm:text-[10px] md:text-xs lg:text-[15px]">
+      <div
+        class="relative flex h-6 w-full items-center rounded-tl-lg bg-white pl-2 pr-1.5 shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:h-9 md:rounded-tl-[17.6px] md:pl-3 md:pr-2 md:shadow-[0_8.8px_8.8px_rgba(0,0,0,0.25)] lg:h-10">
+        <span
+          class="truncate bg-linear-to-b from-[#00224F] to-[#004EB5] bg-clip-text pr-1 font-poppins text-[8.5px] font-bold leading-none text-transparent sm:text-[10px] md:text-xs lg:text-[15px]">
           {{ ketua }}
         </span>
-        <span class="flex h-3.5 md:h-6 shrink-0 items-center justify-center rounded-xs md:rounded-md bg-linear-to-b from-[#0076FF] to-[#00224F] px-1 md:px-2.5 font-poppins text-[7px] font-bold leading-none text-white shadow-[0_0_4px_rgba(0,0,0,0.3)] md:shadow-[0_0_8.8px_rgba(0,0,0,0.3)] md:text-xs lg:text-[13px]">
+
+        <!-- Ketua Class -->
+        <span
+          class="absolute -bottom-5 right-0 flex h-3.5 shrink-0 items-center justify-center bg-linear-to-b from-[#0076FF] to-[#00224F] px-1 font-poppins text-[7px] font-bold leading-none text-white shadow-[0_0_4px_rgba(0,0,0,0.3)] md:h-6 md:px-2.5 md:text-xs md:shadow-[0_0_8.8px_rgba(0,0,0,0.3)] lg:text-[13px]">
           {{ ketuaClass }}
         </span>
       </div>
 
       <!-- Wakil -->
-      <div class="flex h-6 sm:h-7 md:h-9 lg:h-10 w-full items-center justify-between rounded-bl-lg md:rounded-bl-[17.6px] bg-white pl-2 pr-1.5 md:pl-3 md:pr-2 shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:shadow-[0_8.8px_8.8px_rgba(0,0,0,0.25)]">
-        <span class="truncate bg-linear-to-b from-[#00224F] to-[#004EB5] bg-clip-text font-poppins text-[8.5px] font-bold leading-none text-transparent sm:text-[10px] md:text-xs lg:text-[15px]">
+      <div
+        class="relative flex h-6 w-full items-center rounded-bl-lg bg-white pl-2 pr-1.5 shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:h-9 md:rounded-bl-[17.6px] md:pl-3 md:pr-2 md:shadow-[0_8.8px_8.8px_rgba(0,0,0,0.25)] lg:h-10">
+        <span
+          class="truncate bg-linear-to-b from-[#00224F] to-[#004EB5] bg-clip-text pr-1 font-poppins text-[8.5px] font-bold leading-none text-transparent sm:text-[10px] md:text-xs lg:text-[15px]">
           {{ wakil }}
         </span>
-        <span class="flex h-3.5 md:h-6 shrink-0 items-center justify-center rounded-xs md:rounded-md bg-linear-to-b from-[#0076FF] to-[#00224F] px-1 md:px-2.5 font-poppins text-[7px] font-bold leading-none text-white shadow-[0_0_4px_rgba(0,0,0,0.3)] md:shadow-[0_0_8.8px_rgba(0,0,0,0.3)] md:text-xs lg:text-[13px]">
+
+        <!-- Wakil Class -->
+        <span
+          class="absolute -bottom-5 right-0 flex h-3.5 shrink-0 items-center justify-center bg-linear-to-b from-[#0076FF] to-[#00224F] px-1 font-poppins text-[7px] font-bold leading-none text-white shadow-[0_0_4px_rgba(0,0,0,0.3)] md:h-6 md:px-2.5 md:text-xs md:shadow-[0_0_8.8px_rgba(0,0,0,0.3)] lg:text-[13px]">
           {{ wakilClass }}
         </span>
       </div>
     </div>
 
     <!-- Button Vote -->
-    <ButtonVote
-      variant="vote"
-      size="md"
-      class="mt-1"
-      @click="emit('vote', Number(props.number))"
-    >
+    <ButtonVote variant="vote" size="md" class="mt-1" @click="emit('vote', Number(props.number))">
       VOTE
     </ButtonVote>
   </article>

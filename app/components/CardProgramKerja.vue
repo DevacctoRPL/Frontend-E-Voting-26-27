@@ -22,6 +22,13 @@ const cleanWorkProgramsText = (workProgram: WorkProgramItem) => {
   }
   return workProgram.name
 }
+
+const getItemDescription = (item: WorkProgramItem) => {
+  if (typeof item === 'object' && item.description) {
+    return item.description
+  }
+  return null
+}
 </script>
 
 <template>
@@ -64,7 +71,16 @@ const cleanWorkProgramsText = (workProgram: WorkProgramItem) => {
               :key="`short-${index}-${workProgram}`"
               class="pl-0.5 md:pl-1"
             >
-              {{ cleanWorkProgramsText(workProgram) }}
+              <div class="text-[10px] sm:text-xs md:text-[14px] lg:text-[15px] font-bold leading-tight text-white">
+                {{ cleanWorkProgramsText(workProgram) }}
+              </div>
+
+              <p
+                v-if="getItemDescription(workProgram)"
+                class="mt-0.5 text-[9.5px] sm:text-[11px] md:text-[13px] lg:text-[13.5px] font-normal leading-snug text-white/90"
+              >
+                {{ getItemDescription(workProgram) }}
+              </p>
             </li>
           </ol>
 
