@@ -1,39 +1,45 @@
 <script setup lang="ts">
+import type { Candidate } from '~/types/candidate'
+
 interface Props {
+  candidate?: Candidate
   vision?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  candidate: undefined,
   vision: ''
 })
+
+const displayVision = computed(() => props.candidate?.vision ?? props.vision)
 </script>
 
 <template>
   <section
-    class="relative flex h-full w-full flex-col pt-3.5 md:pt-6"
+    class="relative flex h-full w-full flex-col pt-3 md:pt-6"
     aria-labelledby="vision-title"
   >
     <!-- Badge Visi -->
     <div
       id="vision-title"
-      class="absolute left-6 md:left-8 top-0 z-10 flex h-[25px] w-[81px] md:h-[47px] md:w-[153px] items-center justify-center rounded-[17.5px] md:rounded-[33px] border md:border-[1.89px] border-[#0674FD] bg-linear-to-b from-[#06264F] to-[#0776FC] shadow-md"
+      class="absolute left-4 md:left-8 top-0 z-10 flex h-[23px] w-[75px] md:h-[47px] md:w-[153px] items-center justify-center rounded-[17.5px] md:rounded-[33px] border border-[#0674FD] md:border-[1.89px] bg-linear-to-b from-[#06264F] to-[#0776FC] shadow-md"
     >
-      <span class="font-['Poppins',sans-serif] text-[13px] md:text-[24px] lg:text-[27px] font-bold tracking-wider text-white uppercase leading-none">
+      <span class="font-['Poppins',sans-serif] text-[11px] md:text-[24px] lg:text-[27px] font-bold tracking-wider text-white uppercase leading-none">
         VISI
       </span>
     </div>
 
     <!-- Content Box -->
     <div
-      class="flex flex-1 w-full flex-col justify-start rounded-[12px] md:rounded-[23px] border md:border-[1.89px] border-[#0674FD] bg-[#072750]/82 px-4 pb-4 pt-5 md:px-7 md:pb-6 md:pt-9 text-white shadow-lg backdrop-blur-sm"
+      class="flex flex-1 w-full flex-col justify-start rounded-[12px] md:rounded-[23px] border border-[#0674FD] md:border-[1.89px] bg-[#072750]/82 px-3 pb-3 pt-4 md:px-7 md:pb-6 md:pt-9 text-white shadow-lg backdrop-blur-sm overflow-hidden"
     >
       <div class="flex-1">
         <slot>
           <p
-            v-if="props.vision"
-            class="font-['Poppins',sans-serif] text-[10.5px] font-medium leading-[16.5px] text-white/95 sm:text-xs md:text-[18px] lg:text-[19.5px] md:leading-[28px] lg:leading-[31px]"
+            v-if="displayVision"
+            class="font-['Poppins',sans-serif] text-[10px] font-medium leading-[15px] sm:text-xs sm:leading-[18px] md:text-[17px] lg:text-[19.5px] md:leading-[27px] lg:leading-[31px] text-white/95"
           >
-            {{ props.vision }}
+            {{ displayVision }}
           </p>
 
           <p
@@ -47,3 +53,4 @@ const props = withDefaults(defineProps<Props>(), {
     </div>
   </section>
 </template>
+

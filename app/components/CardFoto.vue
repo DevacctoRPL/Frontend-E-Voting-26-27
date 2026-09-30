@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import type { Candidate } from '~/types/candidate'
+
 interface Props {
+  candidate?: Candidate
   number?: number | string
   image?: string
   alt?: string
@@ -8,6 +11,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  candidate: undefined,
   number: 1,
   image: '',
   alt: 'Foto pasangan calon',
@@ -15,16 +19,25 @@ const props = withDefaults(defineProps<Props>(), {
   cardClass: ''
 })
 
-const formattedNumber = computed(() => {
-  const number = typeof props.number === 'string'
-    ? Number.parseInt(props.number, 10)
-    : props.number
+const displayNumber = computed(() => props.candidate?.number ?? props.number)
+const displayImage = computed(() => props.candidate?.image ?? props.image)
+const displayAlt = computed(() => {
+  if (props.candidate) {
+    return `Foto pasangan calon ${props.candidate.ketua} & ${props.candidate.wakil}`
+  }
+  return props.alt
+})
 
-  if (Number.isNaN(number)) {
-    return props.number
+const formattedNumber = computed(() => {
+  const num = typeof displayNumber.value === 'string'
+    ? Number.parseInt(displayNumber.value, 10)
+    : displayNumber.value
+
+  if (Number.isNaN(num)) {
+    return String(displayNumber.value)
   }
 
-  return number.toString().padStart(2, '0')
+  return num.toString().padStart(2, '0')
 })
 
 const cardDimensions = computed(() => {
@@ -37,11 +50,11 @@ const cardDimensions = computed(() => {
       return 'h-[195px] w-[135px] sm:h-[225px] sm:w-[155px]'
 
     case 'lg':
-      return 'h-[340px] w-[240px] md:h-[390px] md:w-[270px] lg:h-[430px] lg:w-[290px]'
+      return 'h-[210px] w-[140px] sm:h-[240px] sm:w-[165px] md:h-[390px] md:w-[260px] lg:h-[430px] lg:w-[290px]'
 
     case 'md':
     default:
-      return 'h-[270px] w-[190px] sm:h-[320px] sm:w-[225px] md:h-[375px] md:w-[260px]'
+      return 'h-[200px] w-[138px] sm:h-[260px] sm:w-[180px] md:h-[360px] md:w-[250px]'
   }
 })
 </script>
@@ -57,11 +70,11 @@ const cardDimensions = computed(() => {
         class="absolute right-0 top-0 z-20 flex items-center justify-center
                rounded-full border-2 border-white
                bg-linear-to-br from-[#072750] to-[#0776FD]
-               shadow-[0_0_10px_rgba(255,255,255,0.95)] md:shadow-[0_0_13px_rgba(255,255,255,1)]"
+               shadow-[0_0_8px_rgba(255,255,255,0.95)] md:shadow-[0_0_13px_rgba(255,255,255,1)]"
         :class="
           props.size === 'sm'
             ? 'h-7 w-7 text-xs sm:h-8 sm:w-8'
-            : 'h-9 w-9 text-sm sm:h-11 sm:w-11 md:h-14 md:w-14 md:text-2xl'
+            : 'h-8 w-8 text-xs sm:h-9 sm:w-9 md:h-12 md:w-12 lg:h-14 lg:w-14 md:text-xl lg:text-2xl'
         "
       >
         <span
@@ -74,7 +87,8 @@ const cardDimensions = computed(() => {
       <!-- Photo Frame -->
       <div
         class="relative overflow-hidden
-               md:rounded-tr-none md:rounded-bl-none md:rounded-tl-[79px] md:rounded-br-[50px]
+               rounded-tr-[50px] md:rounded-tr-[80px] lg:rounded-tr-[98px]
+               rounded-bl-[25px] md:rounded-bl-[40px] lg:rounded-bl-[49px]
                border-2 md:border-[3.5px] border-white
                bg-linear-to-tr from-[#0775FE] to-[#59B5FE]
                shadow-[0_0_8px_2px_rgba(255,255,255,0.9)] md:shadow-[0_0_12px_4px_rgba(255,255,255,1)]
@@ -84,9 +98,9 @@ const cardDimensions = computed(() => {
       >
         <!-- Candidate Image -->
         <img
-          v-if="props.image"
-          :src="props.image"
-          :alt="props.alt"
+          v-if="displayImage"
+          :src="displayImage"
+          :alt="displayAlt"
           class="h-full w-full object-cover object-top
                  transition-transform duration-500
                  group-hover:scale-105"
@@ -136,3 +150,4 @@ const cardDimensions = computed(() => {
     </div>
   </div>
 </template>
+

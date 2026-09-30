@@ -96,7 +96,7 @@ const handleVote = async (candidateNumber: number) => {
     </header>
 
     <section
-      class="flex w-full max-w-5xl flex-1 flex-row flex-wrap items-start justify-center gap-4 px-6 py-8 sm:gap-8 md:flex-nowrap md:gap-16"
+      class="flex w-full max-w-5xl flex-1 flex-row items-center justify-center gap-2.5 px-2 py-4 sm:gap-6 sm:px-6 sm:py-8 md:gap-16"
     >
       <VotePaslon
         v-for="candidate in candidates"
@@ -112,7 +112,7 @@ const handleVote = async (candidateNumber: number) => {
       />
     </section>
 
-    <footer class="flex justify-center px-6 pb-8">
+    <footer class="flex justify-center px-4 pb-6 md:px-6 md:pb-8">
       <ButtonVote
         to="/vote/mpk/paslon02"
         variant="back"
@@ -121,5 +121,6 @@ const handleVote = async (candidateNumber: number) => {
         BACK
       </ButtonVote>
     </footer>
+
   </main>
 </template>

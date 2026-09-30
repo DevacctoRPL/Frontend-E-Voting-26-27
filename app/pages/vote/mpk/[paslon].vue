@@ -53,12 +53,12 @@ const nextTarget = computed(() => {
 
 <template>
   <main
-    class="flex min-h-screen flex-col items-center justify-between bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-4 py-6 md:px-8 md:py-10 text-white"
-    style="background-image: url(&quot;/background.png&quot;)"
+    class="flex min-h-screen flex-col items-center justify-between bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-3 py-4 sm:px-6 sm:py-6 md:px-8 md:py-10 text-white"
+    style="background-image: url('/background.png')"
   >
     <PaslonDetail :candidate="candidate" />
 
-    <nav class="my-6 md:my-8 flex items-center justify-center gap-6">
+    <nav class="my-4 sm:my-6 md:my-8 flex items-center justify-center gap-4 md:gap-6">
       <ButtonVote
         v-if="otherNumber == 1"
         to="/vote/mpk/paslon01"
@@ -83,3 +83,4 @@ const nextTarget = computed(() => {
     </nav>
   </main>
 </template>
+

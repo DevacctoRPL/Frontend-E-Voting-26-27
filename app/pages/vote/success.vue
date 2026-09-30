@@ -38,29 +38,50 @@ onMounted(clearSession)
       </p>
     </div>
 
-    <!-- Tagline (Figma After Vote) -->
-    <div class="flex flex-wrap items-center justify-center gap-4 text-xs italic text-white/90 md:gap-8 md:text-sm">
-      <span class="flex items-center gap-1.5">
-        <span class="size-1.5 rounded-full bg-[#58B4FD]" />
-        Karakter <span class="font-bold underline">dikenali</span>
-      </span>
-      <span class="flex items-center gap-1.5">
-        <span class="size-1.5 rounded-full bg-[#58B4FD]" />
-        Integritas <span class="font-bold underline">diseleksi</span>
-      </span>
-      <span class="flex items-center gap-1.5">
-        <span class="size-1.5 rounded-full bg-[#58B4FD]" />
-        Kepemimpinan <span class="font-bold underline">dibentuk</span>
-      </span>
+    <!-- Tagline Card (Figma After Vote) -->
+    <div
+      class="flex w-full max-w-[340px] md:max-w-[560px] items-center justify-center gap-3 sm:gap-6 rounded-[8px] md:rounded-[12px] border border-[#0674FD] bg-[#072750]/85 px-4 py-3 md:px-7 md:py-4 shadow-lg backdrop-blur-sm"
+    >
+      <!-- Emblem Icon -->
+      <div class="flex h-10 w-10 md:h-14 md:w-14 shrink-0 items-center justify-center rounded-full bg-linear-to-b from-[#0776FC]/30 to-[#58B4FD]/20 border border-[#58B4FD]/40">
+        <svg
+          class="h-5 w-5 md:h-8 md:w-8 text-[#58B4FD]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      </div>
+
+      <!-- Vertical Divider -->
+      <div class="h-10 md:h-16 w-px bg-linear-to-b from-[#0674FD]/20 via-[#58B4FD] to-[#0674FD]/20" />
+
+      <!-- Three Pillars -->
+      <div class="flex flex-col items-start gap-1 font-['Poppins',sans-serif] text-[11px] sm:text-xs md:text-sm text-white/95 text-left">
+        <span>
+          Karakter <strong class="italic underline text-[#58B4FD]">dikenali</strong>
+        </span>
+        <span>
+          Integritas <strong class="italic underline text-[#58B4FD]">diseleksi</strong>
+        </span>
+        <span>
+          Kepemimpinan <strong class="italic underline text-[#58B4FD]">dibentuk</strong>
+        </span>
+      </div>
     </div>
 
     <ButtonVote
       to="/"
       variant="vote"
       size="lg"
-      class="mt-4"
+      class="mt-2 md:mt-4"
     >
       KEMBALI KE BERANDA
     </ButtonVote>
+
   </main>
 </template>
