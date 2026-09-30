@@ -2,7 +2,7 @@
 
 
 @theme static {
-  --font-sans: 'Inter', 'Poppins', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
 
   --color-Background-utama-50: #071A33;
   --color-Card-section-navbar-100: #0D2A4A;

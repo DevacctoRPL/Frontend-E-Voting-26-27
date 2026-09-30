@@ -4,25 +4,7 @@ definePageMeta({
 })
 
 const { submit } = useVote()
-const { getVotingStatus, markVoteComplete } = useAuth()
-
-onMounted(async () => {
-  try {
-    const status = await getVotingStatus()
-
-    if (status?.sudah_vote_osis && status?.sudah_vote_mpk) {
-      await navigateTo('/vote/success')
-      return
-    } else if (status?.sudah_vote_mpk == false){
-      await navigateTo('/vote/mpk/paslon01')
-      return
-    } else {
-      return
-    }
-  } catch {
-    return
-  }
-})
+const { markVoteComplete } = useAuth()
 
 interface VoteCandidate {
   number: number

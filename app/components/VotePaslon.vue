@@ -38,7 +38,7 @@ const formattedNumber = computed(() => {
       <div
         class="absolute right-0 top-0 z-20 flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-linear-to-br from-[#072750] to-[#0776FD] shadow-[0_0_10px_rgba(255,255,255,0.95)] md:h-12 md:w-12 xl:h-13 xl:w-13"
       >
-        <span class="font-['Poppins',sans-serif] text-xs font-extrabold tracking-tight text-white md:text-lg xl:text-xl leading-none">
+        <span class="font-poppins text-xs font-extrabold tracking-tight text-white md:text-lg xl:text-xl leading-none">
           {{ formattedNumber }}
         </span>
       </div>
@@ -60,20 +60,20 @@ const formattedNumber = computed(() => {
     <div class="flex w-full flex-col gap-1.5 md:gap-2.5">
       <!-- Ketua -->
       <div class="flex h-6 sm:h-7 md:h-9 lg:h-10 w-full items-center justify-between rounded-tl-lg md:rounded-tl-[17.6px] bg-white pl-2 pr-1.5 md:pl-3 md:pr-2 shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:shadow-[0_8.8px_8.8px_rgba(0,0,0,0.25)]">
-        <span class="truncate bg-linear-to-b from-[#00224F] to-[#004EB5] bg-clip-text font-['Poppins',sans-serif] text-[9px] font-bold leading-none text-transparent sm:text-[10px] md:text-xs lg:text-[15px]">
+        <span class="truncate bg-linear-to-b from-[#00224F] to-[#004EB5] bg-clip-text font-poppins text-[9px] font-bold leading-none text-transparent sm:text-[10px] md:text-xs lg:text-[15px]">
           {{ ketua }}
         </span>
-        <span class="flex h-4 md:h-6 shrink-0 items-center justify-center rounded-xs md:rounded-md bg-linear-to-b from-[#0076FF] to-[#00224F] px-1.5 md:px-2.5 font-['Poppins',sans-serif] text-[7.5px] font-bold leading-none text-white shadow-[0_0_4px_rgba(0,0,0,0.3)] md:shadow-[0_0_8.8px_rgba(0,0,0,0.3)] md:text-xs lg:text-[13px]">
+        <span class="flex h-4 md:h-6 shrink-0 items-center justify-center rounded-xs md:rounded-md bg-linear-to-b from-[#0076FF] to-[#00224F] px-1.5 md:px-2.5 font-poppins text-[7.5px] font-bold leading-none text-white shadow-[0_0_4px_rgba(0,0,0,0.3)] md:shadow-[0_0_8.8px_rgba(0,0,0,0.3)] md:text-xs lg:text-[13px]">
           {{ ketuaClass }}
         </span>
       </div>
 
       <!-- Wakil -->
-      <div class="flex h-6 sm:h-7 md:h-9 lg:h-10 w-full items-center justify-between rounded-tl-lg md:rounded-tl-[17.6px] bg-white pl-2 pr-1.5 md:pl-3 md:pr-2 shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:shadow-[0_8.8px_8.8px_rgba(0,0,0,0.25)]">
-        <span class="truncate bg-linear-to-b from-[#00224F] to-[#004EB5] bg-clip-text font-['Poppins',sans-serif] text-[9px] font-bold leading-none text-transparent sm:text-[10px] md:text-xs lg:text-[15px]">
+      <div class="flex h-6 sm:h-7 md:h-9 lg:h-10 w-full items-center justify-between rounded-bl-lg md:rounded-bl-[17.6px] bg-white pl-2 pr-1.5 md:pl-3 md:pr-2 shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:shadow-[0_8.8px_8.8px_rgba(0,0,0,0.25)]">
+        <span class="truncate bg-linear-to-b from-[#00224F] to-[#004EB5] bg-clip-text font-poppins text-[9px] font-bold leading-none text-transparent sm:text-[10px] md:text-xs lg:text-[15px]">
           {{ wakil }}
         </span>
-        <span class="flex h-4 md:h-6 shrink-0 items-center justify-center rounded-xs md:rounded-md bg-linear-to-b from-[#0076FF] to-[#00224F] px-1.5 md:px-2.5 font-['Poppins',sans-serif] text-[7.5px] font-bold leading-none text-white shadow-[0_0_4px_rgba(0,0,0,0.3)] md:shadow-[0_0_8.8px_rgba(0,0,0,0.3)] md:text-xs lg:text-[13px]">
+        <span class="flex h-4 md:h-6 shrink-0 items-center justify-center rounded-xs md:rounded-md bg-linear-to-b from-[#0076FF] to-[#00224F] px-1.5 md:px-2.5 font-poppins text-[7.5px] font-bold leading-none text-white shadow-[0_0_4px_rgba(0,0,0,0.3)] md:shadow-[0_0_8.8px_rgba(0,0,0,0.3)] md:text-xs lg:text-[13px]">
           {{ wakilClass }}
         </span>
       </div>

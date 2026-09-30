@@ -1,31 +1,12 @@
 <script setup lang="ts">
+import type { Candidate } from '~/types/candidate'
+import paslonData from '~/data/paslon.json'
+
 definePageMeta({
   middleware: 'auth'
 })
 
-import type { Candidate } from '~/types/candidate'
-import paslonData from '~/data/paslon.json'
-
 const route = useRoute()
-const { getVotingStatus } = useAuth()
-
-onMounted(async () => {
-  try {
-    const status = await getVotingStatus()
-
-    if (status?.sudah_vote_osis && status?.sudah_vote_mpk) {
-      await navigateTo('/vote/success')
-      return
-    } else if (status?.sudah_vote_mpk == false){
-      await navigateTo('/vote/mpk/paslon01')
-      return
-    } else {
-      return
-    }
-  } catch {
-    return
-  }
-})
 
 const paslonNumber = Number(
   String(route.params.paslon).replace('paslon', '')
