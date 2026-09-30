@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { login, isAuthenticated, getVotingStatus } = useAuth()
+const { login, isAuthenticated } = useAuth()
 
 const nis = ref('')
 const password = ref('')
@@ -8,20 +8,6 @@ const errorMessage = ref('')
 
 useHead({
   title: 'Login - E-Voting SMK Plus Pelita Nusantara'
-})
-
-onMounted(async () => {
-  if (isAuthenticated()) {
-    const status = await getVotingStatus()
-
-    if (status?.sudah_vote_mpk && status.sudah_vote_osis) {
-      await navigateTo('/vote/success')
-    } else if (status?.sudah_vote_mpk) {
-      await navigateTo('/vote/osis/paslon01')
-    } else {
-      await navigateTo('/vote/mpk/paslon01')
-    }
-  }
 })
 
 const handleLogin = async () => {
@@ -52,14 +38,13 @@ const handleLogin = async () => {
     if (res.data.status_pemilihan?.sudah_vote_mpk && res.data.status_pemilihan.sudah_vote_osis) {
       await navigateTo('/vote/success')
       return
-    } else if(res.data.status_pemilihan?.sudah_vote_mpk) {
+    } else if (res.data.status_pemilihan?.sudah_vote_mpk) {
       await navigateTo('/vote/osis/paslon01')
       return
     } else {
       await navigateTo('/vote/mpk/paslon01')
       return
     }
-
   } catch {
     errorMessage.value = 'Login gagal. Periksa koneksi Anda dan coba lagi.'
   } finally {
