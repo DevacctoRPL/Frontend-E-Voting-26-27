@@ -15,12 +15,14 @@
     "@iconify-json/simple-icons": "^1.2.96",
     "@nuxt/icon": "^2.5.1",
     "@tailwindcss/vite": "^4.3.3",
+    "canvas-confetti": "^1.9.4",
     "dotenv": "^18.0.4",
     "nuxt": "^4.5.2",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.17.0",
+    "@types/canvas-confetti": "^1.9.0",
     "eslint": "^10.11.0",
     "eslint-plugin-better-tailwindcss": "^4.7.0",
     "typescript": "^6.0.3",

@@ -31,7 +31,7 @@ const displayVision = computed(() => props.candidate?.vision ?? props.vision)
 
     <!-- Content Box -->
     <div
-      class="flex flex-1 w-full flex-col justify-start rounded-[12px] md:rounded-[23px] border border-[#0674FD] md:border-[1.89px] bg-[#072750]/82 px-3 pb-3 pt-4 md:px-7 md:pb-6 md:pt-9 text-white shadow-lg backdrop-blur-sm overflow-hidden"
+      class="flex flex-1 w-full flex-col justify-start rounded-[12px] md:rounded-[23px] border border-[#0674FD] md:border-[1.89px] bg-[#072750]/82 px-3 pb-3 pt-4 md:px-7 md:pb-6 md:pt-9 text-white shadow-lg backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-[#58B4FD] hover:shadow-[0_0_18px_rgba(6,116,253,0.3)]"
     >
       <div class="flex-1">
         <slot>

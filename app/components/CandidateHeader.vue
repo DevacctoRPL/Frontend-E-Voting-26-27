@@ -10,7 +10,7 @@ defineProps<Props>()
 
 <template>
   <header
-    class="flex h-full min-h-9.75 w-full items-center justify-center rounded-tr-lg bg-white px-2 py-1 md:px-6 md:py-2 shadow-[0px_4px_4px_rgba(0,0,0,0.25)] md:shadow-[0px_6.5px_6.5px_rgba(0,0,0,0.25)]"
+    class="flex w-full items-center justify-center rounded-tr-[12px] md:rounded-tr-[18px] bg-white px-2.5 py-1.5 mt-2 md:mt-3 md:px-6 md:py-2.5 shadow-[0px_4px_4px_rgba(0,0,0,0.25)] md:shadow-[0px_6.5px_6.5px_rgba(0,0,0,0.25)]"
     aria-label="Informasi pasangan calon"
   >
     <div class="flex max-w-full flex-col md:flex-row items-center justify-center gap-0.5 md:gap-3 lg:gap-4 overflow-hidden text-center">

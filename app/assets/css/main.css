@@ -2,7 +2,9 @@
 
 
 @theme static {
+  --font-sans: 'Inter', 'Poppins', sans-serif;
   --font-poppins: 'Poppins', sans-serif;
+  --font-inter: 'Inter', sans-serif;
 
   --color-Background-utama-50: #071A33;
   --color-Card-section-navbar-100: #0D2A4A;
@@ -18,25 +20,86 @@
    Responsive Paslon Grid Layout (Figma-Matched & Desktop/Mobile Grid Areas)
    ========================================================================== */
 
-/* Grid Area Mappings */
+/* Subtle Paslon Keyframes & Staggered Animations */
+@keyframes paslonFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes paslonHeaderFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes paslonPhotoFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Grid Area Mappings & Staggered Entrance */
 .candidate-header {
   grid-area: header;
+  align-self: start;
+  animation: paslonHeaderFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.08s backwards;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.candidate-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
 .candidate-photo {
   grid-area: photo;
+  animation: paslonPhotoFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.05s backwards;
 }
 
 .candidate-visi {
   grid-area: visi;
+  animation: paslonFadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.14s backwards;
+  transition: transform 0.25s ease;
+}
+
+.candidate-visi:hover {
+  transform: translateY(-2px);
 }
 
 .candidate-misi {
   grid-area: misi;
+  animation: paslonFadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.22s backwards;
+  transition: transform 0.25s ease;
+}
+
+.candidate-misi:hover {
+  transform: translateY(-2px);
 }
 
 .candidate-program {
   grid-area: program;
+  animation: paslonFadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+  transition: transform 0.25s ease;
+}
+
+.candidate-program:hover {
+  transform: translateY(-2px);
 }
 
 /* Base Desktop Grid Layout (.paslon-layout and .paslon-grid) */
@@ -80,7 +143,7 @@
   .paslon-layout,
   .paslon-grid {
     grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto 1fr auto auto;
     grid-template-areas:
       "header photo"
       "visi photo"

@@ -49,7 +49,7 @@ const getItemDescription = (item: WorkProgramItem) => {
 
     <!-- Programs container -->
     <div
-      class="flex flex-1 w-full flex-col rounded-[12px] md:rounded-[14px] border border-[#0674FD] bg-[#072750]/85 px-3 pb-4 pt-5 text-white shadow-lg backdrop-blur-sm md:px-8 md:pb-8 md:pt-9"
+      class="flex flex-1 w-full flex-col rounded-[12px] md:rounded-[14px] border border-[#0674FD] bg-[#072750]/85 px-3 pb-4 pt-5 text-white shadow-lg backdrop-blur-sm md:px-8 md:pb-8 md:pt-9 transition-all duration-300 hover:border-[#58B4FD] hover:shadow-[0_0_18px_rgba(6,116,253,0.3)]"
     >
       <div
         class="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 md:gap-10"

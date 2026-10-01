@@ -27,11 +27,12 @@ const candidates: VoteCandidate[] = [
   {
     number: 2,
     image: '/images/paslon/osis/paslon02.png',
-    ketua: 'Nafisa Asqiyah Ananta Gunawan',
+    ketua: 'Arfa Alfahim',
     ketuaClass: 'XI RPL 1',
-    wakil: 'Arfa Alfahim',
+    wakil: 'Nafisa Asqiyah Ananta Gunawan',
     wakilClass: 'XI RPL 1'
   }
+
 ]
 
 const handleVote = async (candidateNumber: number) => {

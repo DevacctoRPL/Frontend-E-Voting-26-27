@@ -86,7 +86,7 @@ const sizeClasses = computed(() => {
   <NuxtLink
     v-if="to && !disabled && !loading"
     :to="to"
-    class="inline-flex items-center justify-center gap-2 font-['Poppins',sans-serif] uppercase leading-none transition-all duration-300 select-none cursor-pointer text-center"
+    class="inline-flex items-center justify-center gap-2 font-['Poppins',sans-serif] uppercase leading-none transition-all duration-300 select-none cursor-pointer text-center hover:scale-105 active:scale-95"
     :class="[
       variantClasses,
       sizeClasses,
@@ -113,7 +113,7 @@ const sizeClasses = computed(() => {
     v-else
     :type="type"
     :disabled="disabled || loading"
-    class="inline-flex items-center justify-center gap-2 font-['Poppins',sans-serif] uppercase leading-none transition-all duration-300 select-none text-center"
+    class="inline-flex items-center justify-center gap-2 font-['Poppins',sans-serif] uppercase leading-none transition-all duration-300 select-none text-center hover:scale-105 active:scale-95"
     :class="[
       variantClasses,
       sizeClasses,
