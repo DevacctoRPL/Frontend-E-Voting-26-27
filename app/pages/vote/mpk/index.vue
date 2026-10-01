@@ -18,7 +18,7 @@ interface VoteCandidate {
 const candidates: VoteCandidate[] = [
   {
     number: 1,
-    image: '/images/paslon/mpk/paslon01.png',
+    image: '/images/paslon/mpk/paslon01.webp',
     ketua: 'Syaira Ramadina Maulana',
     ketuaClass: 'XI RPL 1',
     wakil: 'Eza Vrandino',
@@ -26,7 +26,7 @@ const candidates: VoteCandidate[] = [
   },
   {
     number: 2,
-    image: '/images/paslon/mpk/paslon02.png',
+    image: '/images/paslon/mpk/paslon02.webp',
     ketua: 'Keisya Widya Ayuningrum Andico',
     ketuaClass: 'XI DKV 1',
     wakil: 'Anastasya Putri Rahmawati',
@@ -52,7 +52,7 @@ const handleVote = async (candidateNumber: number) => {
 <template>
   <main
     class="flex min-h-screen flex-col items-center justify-between bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-4 py-6 text-white md:px-6 md:py-8"
-    style="background-image: url(&quot;/background.png&quot;)"
+    style="background-image: url(&quot;/background.webp&quot;)"
   >
     <header class="flex w-full justify-center px-4 py-4 md:py-6">
       <!-- Wrapper container tightly bounding the titles -->

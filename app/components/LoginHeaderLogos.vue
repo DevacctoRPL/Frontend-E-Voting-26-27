@@ -8,28 +8,28 @@
   >
     <!-- Logo SMK Plus Penus -->
     <img
-      :src="'/images/login/logo_smk.png'"
+      :src="'/images/login/logo_smk.webp'"
       alt="Logo SMK Plus Pelita Nusantara"
       class="h-9 sm:h-12 w-auto object-contain drop-shadow"
     />
 
     <!-- Logo OSIS -->
     <img
-      :src="'/images/paslon/osis/logo_osis.png'"
+      :src="'/images/paslon/osis/logo_osis.webp'"
       alt="Logo OSIS"
       class="h-10 sm:h-14 w-auto object-contain drop-shadow"
     />
 
     <!-- Logo MPK -->
     <img
-      :src="'/images/paslon/mpk/logo_mpk.png'"
+      :src="'/images/paslon/mpk/logo_mpk.webp'"
       alt="Logo MPK"
       class="h-8 sm:h-11 w-auto object-contain drop-shadow"
     />
 
     <!-- Logo KPU -->
     <img
-      :src="'/images/login/logo_kpu.png'"
+      :src="'/images/login/logo_kpu.webp'"
       alt="Logo KPU"
       class="h-8 sm:h-11 w-auto object-contain drop-shadow"
     />

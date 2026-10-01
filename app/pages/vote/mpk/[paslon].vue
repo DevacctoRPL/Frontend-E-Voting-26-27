@@ -35,7 +35,7 @@ const nextTarget = computed(() => {
 <template>
   <main
     class="flex min-h-screen flex-col items-center justify-between bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-3 py-4 sm:px-6 sm:py-6 md:px-8 md:py-10 text-white"
-    style="background-image: url('/background.png')"
+    style="background-image: url('/background.webp')"
   >
     <PaslonDetail :candidate="candidate" />
 

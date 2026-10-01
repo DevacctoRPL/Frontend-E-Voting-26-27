@@ -8,21 +8,21 @@
   >
     <!-- Logo TKJ -->
     <img
-      :src="'/images/login/logo_tkj.png'"
+      :src="'/images/login/logo_tkj.webp'"
       alt="Logo TKJ"
       class="h-10 w-auto object-contain drop-shadow"
     />
 
     <!-- Logo DKV -->
     <img
-      :src="'/images/login/logo_dkv.png'"
+      :src="'/images/login/logo_dkv.webp'"
       alt="Logo DKV"
       class="h-10 w-auto object-contain drop-shadow"
     />
 
     <!-- Logo RPL -->
     <img
-      :src="'/images/login/logo_rpl.png'"
+      :src="'/images/login/logo_rpl.webp'"
       alt="Logo RPL"
       class="h-10.5 w-auto object-contain drop-shadow"
     />

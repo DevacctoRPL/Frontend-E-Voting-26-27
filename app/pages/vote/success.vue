@@ -50,7 +50,7 @@ onMounted(() => {
 <template>
   <main
     class="flex min-h-screen flex-col items-center justify-center gap-6 bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-6 text-center text-white overflow-hidden"
-    style="background-image: url('/background.png')"
+    style="background-image: url('/background.webp')"
   >
     <!-- Checkmark Circle with Radiant Glow -->
     <div
