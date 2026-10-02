@@ -34,17 +34,51 @@ const candidates: VoteCandidate[] = [
   }
 ]
 
-const handleVote = async (candidateNumber: number) => {
+const selectedCandidate = ref<VoteCandidate | null>(null)
+const showVerification = ref(false)
+const isSubmitting = ref(false)
+
+const handleVote = (candidateNumber: number) => {
+  const candidate = candidates.find(
+    candidate => candidate.number === candidateNumber
+  )
+
+  if (!candidate) {
+    return
+  }
+
+  selectedCandidate.value = candidate
+  showVerification.value = true
+}
+
+const cancelVote = () => {
+  if (isSubmitting.value) {
+    return
+  }
+
+  selectedCandidate.value = null
+  showVerification.value = false
+}
+
+const confirmVote = async () => {
+  if (!selectedCandidate.value || isSubmitting.value) {
+    return
+  }
+
+  isSubmitting.value = true
+
   const response = await submit({
-    kandidat_id: candidateNumber,
+    kandidat_id: selectedCandidate.value.number,
     pemilihan_umum_id: 2
   })
 
   if (!('data' in response)) {
+    isSubmitting.value = false
     return
   }
 
   markVoteComplete('mpk')
+
   await navigateTo('/vote/osis/paslon01')
 }
 </script>
@@ -52,12 +86,10 @@ const handleVote = async (candidateNumber: number) => {
 <template>
   <main
     class="flex min-h-screen flex-col items-center justify-between bg-size-[100%_100%] bg-no-repeat bg-fixed bg-Background-utama-50 px-4 py-6 text-white md:px-6 md:py-8"
-    style="background-image: url(&quot;/background.webp&quot;)"
+    style="background-image: url('/background.webp')"
   >
     <header class="flex w-full justify-center px-4 py-4 md:py-6">
-      <!-- Wrapper container tightly bounding the titles -->
       <div class="relative flex flex-col items-center gap-1 px-8 py-2">
-        <!-- Glow Background (Constrained to the wrapper) -->
         <div
           class="absolute inset-0 bg-linear-to-r from-[#59B4FD]/0 via-[#59B4FD]/70 to-[#59B4FD]/0"
         />
@@ -104,5 +136,12 @@ const handleVote = async (candidateNumber: number) => {
       </ButtonVote>
     </footer>
 
+    <CardVerification
+      v-if="showVerification && selectedCandidate"
+      :candidate="selectedCandidate"
+      :is-submitting="isSubmitting"
+      @confirm="confirmVote"
+      @cancel="cancelVote"
+    />
   </main>
 </template>

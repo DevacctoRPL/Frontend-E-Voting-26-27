@@ -85,7 +85,7 @@ const formattedNumber = computed(() => {
 
       <!-- Wakil -->
       <div
-        class="relative flex h-6.5 w-full items-center rounded-tl-lg bg-white pl-2 pr-14 shadow-[0_4px_4px_rgba(0,0,0,0.25)] sm:h-7 md:h-9 md:rounded-tl-[17.6px] md:pl-3 md:pr-24 md:shadow-[0_8.8px_8.8px_rgba(0,0,0,0.25)] lg:h-10"
+        class="relative flex h-6.5 w-full items-center rounded-bl-lg bg-white pl-2 pr-14 shadow-[0_4px_4px_rgba(0,0,0,0.25)] sm:h-7 md:h-9 md:rounded-bl-[17.6px] md:pl-3 md:pr-24 md:shadow-[0_8.8px_8.8px_rgba(0,0,0,0.25)] lg:h-10"
       >
         <span
           class="min-w-0 flex-1 truncate bg-linear-to-b from-[#00224F] to-[#004EB5] bg-clip-text font-poppins text-[9px] font-bold leading-none text-transparent sm:text-[10px] md:text-xs lg:text-[14px]"

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import confetti from 'canvas-confetti'
+
 definePageMeta({
   middleware: 'auth'
 })
