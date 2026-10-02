@@ -1,7 +1,11 @@
 <script setup lang="ts">
-const { login, isAuthenticated } = useAuth()
+const { login, isAuthenticated, clearSession } = useAuth()
 
-const nis = ref('')
+if (import.meta.client) {
+  clearSession()
+}
+
+const nis = ref('') 
 const password = ref('')
 const loading = ref(false)
 const errorMessage = ref('')

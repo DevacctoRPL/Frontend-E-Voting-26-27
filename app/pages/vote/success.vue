@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import confetti from 'canvas-confetti'
-
-const { clearSession } = useAuth()
+definePageMeta({
+  middleware: 'auth'
+})
 
 const triggerCelebration = () => {
   if (typeof window === 'undefined') return
@@ -41,7 +42,6 @@ const triggerCelebration = () => {
 }
 
 onMounted(() => {
-  clearSession()
   // Trigger after smooth page transition
   setTimeout(triggerCelebration, 150)
 })

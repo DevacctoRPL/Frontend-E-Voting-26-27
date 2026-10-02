@@ -14,7 +14,8 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   routeRules: {
-    '/': { prerender: true }
+    '/': { prerender: true },
+    '/vote/**': { ssr: false }
   },
 
   runtimeConfig: {
