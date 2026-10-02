@@ -139,6 +139,7 @@ const confirmVote = async () => {
     <CardVerification
       v-if="showVerification && selectedCandidate"
       :candidate="selectedCandidate"
+      logo="/images/paslon/osis/logo_osis.webp"
       :is-submitting="isSubmitting"
       @confirm="confirmVote"
       @cancel="cancelVote"

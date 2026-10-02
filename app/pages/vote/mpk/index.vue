@@ -139,6 +139,7 @@ const confirmVote = async () => {
     <CardVerification
       v-if="showVerification && selectedCandidate"
       :candidate="selectedCandidate"
+      logo="/images/paslon/mpk/logo_mpk.webp"
       :is-submitting="isSubmitting"
       @confirm="confirmVote"
       @cancel="cancelVote"
