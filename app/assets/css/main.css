@@ -1,18 +1,190 @@
 @import "tailwindcss";
-@import "@nuxt/ui";
+
 
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
+  --font-sans: 'Inter', 'Poppins', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-inter: 'Inter', sans-serif;
 
-  --color-green-50: #EFFDF5;
-  --color-green-100: #D9FBE8;
-  --color-green-200: #B3F5D1;
-  --color-green-300: #75EDAE;
-  --color-green-400: #00DC82;
-  --color-green-500: #00C16A;
-  --color-green-600: #00A155;
+  --color-Background-utama-50: #071A33;
+  --color-Card-section-navbar-100: #0D2A4A;
+  --color-CTA-tombol-highlight-utama-200: #1677FF;
+  --color-Secondary-accent-hover-300: #5CB8FF;
+  --color-Background-terang-teks-di-dark-bg-400: #00DC82;
+  --color-Teks-sekunder-icon-non-aktif-500: #AAB7C4;
+  --color-Status-berhasil-terpilih-konfirmasi-600: #22C55E;
   --color-green-700: #007F45;
-  --color-green-800: #016538;
-  --color-green-900: #0A5331;
-  --color-green-950: #052E16;
 }
+
+/* ==========================================================================
+   Responsive Paslon Grid Layout (Figma-Matched & Desktop/Mobile Grid Areas)
+   ========================================================================== */
+
+/* Subtle Paslon Keyframes & Staggered Animations */
+@keyframes paslonFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes paslonHeaderFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes paslonPhotoFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Grid Area Mappings & Staggered Entrance */
+.candidate-header {
+  grid-area: header;
+  align-self: start;
+  animation: paslonHeaderFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.08s backwards;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.candidate-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.candidate-photo {
+  grid-area: photo;
+  animation: paslonPhotoFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.05s backwards;
+}
+
+.candidate-visi {
+  grid-area: visi;
+  animation: paslonFadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.14s backwards;
+  transition: transform 0.25s ease;
+}
+
+.candidate-visi:hover {
+  transform: translateY(-2px);
+}
+
+.candidate-misi {
+  grid-area: misi;
+  animation: paslonFadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.22s backwards;
+  transition: transform 0.25s ease;
+}
+
+.candidate-misi:hover {
+  transform: translateY(-2px);
+}
+
+.candidate-program {
+  grid-area: program;
+  animation: paslonFadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+  transition: transform 0.25s ease;
+}
+
+.candidate-program:hover {
+  transform: translateY(-2px);
+}
+
+/* Base Desktop Grid Layout (.paslon-layout and .paslon-grid) */
+.paslon-layout,
+.paslon-grid {
+  display: grid;
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: minmax(260px, 300px) 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "photo header header"
+    "photo visi misi"
+    "program program program";
+  gap: 1.5rem 1.75rem;
+  align-items: stretch;
+}
+
+/* Tablet Landscape / Medium Desktop (1024px - 1279px) */
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .paslon-layout,
+  .paslon-grid {
+    grid-template-columns: 260px 1fr 1fr;
+    gap: 1.25rem 1.5rem;
+  }
+}
+
+/* Tablet Portrait (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .paslon-layout,
+  .paslon-grid {
+    grid-template-columns: 230px 1fr 1fr;
+    gap: 1rem 1.25rem;
+  }
+}
+
+/* Mobile Layout (<= 767px) - Matches Figma WEB MOBILE 26/27 */
+@media (max-width: 767px) {
+  .paslon-layout,
+  .paslon-grid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto auto;
+    grid-template-areas:
+      "header photo"
+      "visi photo"
+      "misi misi"
+      "program program";
+    gap: 0.75rem 0.625rem;
+    align-items: stretch;
+  }
+
+  /* Support alternative 1fr 1fr with full-width visi if explicitly requested */
+  .paslon-layout.has-full-visi,
+  .paslon-grid.has-full-visi {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "header photo"
+      "visi visi"
+      "misi misi"
+      "program program";
+  }
+}
+
+/* Extra Small Mobile Devices (<= 360px) */
+@media (max-width: 360px) {
+  .paslon-layout,
+  .paslon-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "header"
+      "visi"
+      "misi"
+      "program";
+    gap: 0.75rem;
+  }
+}
+
+/* Ensure photo alignment inside grid cell */
+.candidate-photo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+

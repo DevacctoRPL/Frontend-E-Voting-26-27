@@ -6,6 +6,15 @@ import { getDefaultAttributes } from 'eslint-plugin-better-tailwindcss/api/defau
 export default withNuxt(
   betterTailwindcss.configs['correctness-error'],
   {
+    rules: {
+      'vue/no-multiple-template-root': 'off',
+      'vue/singleline-html-element-content-newline': ['error', {
+        ignoreWhenNoAttributes: true,
+        ignoreWhenEmpty: true
+      }]
+    }
+  },
+  {
     settings: {
       'better-tailwindcss': {
         entryPoint: 'app/assets/css/main.css',

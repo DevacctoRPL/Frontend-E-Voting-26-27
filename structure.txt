@@ -1,0 +1,64 @@
+evoting-mpk-fe/
+├── nuxt.config.ts
+├── package.json
+├── .env
+│
+├── assets/
+│   └── css/
+│       └── main.css
+│
+├── components/
+│   ├── ui/
+│   │   ├── Button.vue
+│   │   ├── Card.vue
+│   │   ├── Modal.vue
+│   │   └── Loader.vue
+│   ├── voting/
+│   │   ├── StepProgress.vue
+│   │   ├── VisiMisiCard.vue
+│   │   ├── CandidateCard.vue
+│   │   ├── VoteConfirmModal.vue
+│   │   └── VoteSuccessAnimation.vue
+│   └── layout/
+│       ├── Navbar.vue
+│       └── Footer.vue
+│
+├── layouts/
+│   ├── default.vue
+│   ├── voting.vue
+│   └── auth.vue
+│
+├── pages/
+│   ├── index.vue                   # "Buka website e-voting"
+│   ├── login.vue                   # "Login: Masukkan NIS & password"
+│   └── vote/
+│       ├── mpk/
+│       │   ├── visi-misi.vue       # "Visi & misi MPK"
+│       │   └── pilih.vue           # "Pilih paslon MPK"
+│       ├── osis/
+│       │   ├── visi-misi.vue       # "Visi & misi OSIS"
+│       │   └── pilih.vue           # "Pilih paslon OSIS"
+│       └── success.vue             # "Voting berhasil"
+│
+├── middleware/
+│   ├── auth.ts                     # wajib login sblm masuk /vote/*
+│   └── voting-flow.ts              # jaga urutan mpk → osis → success
+│
+├── composables/
+│   ├── useAuth.ts
+│   ├── useApi.ts
+│   └── useVotingFlow.ts
+│
+├── stores/
+│   ├── auth.ts
+│   ├── candidates.ts
+│   └── voteProgress.ts             # { mpkVoted: bool, osisVoted: bool }
+│
+├── types/
+│   ├── candidate.d.ts
+│   ├── vote.d.ts
+│   ├── user.d.ts
+│   └── api.d.ts
+│
+└── utils/
+    └── constants.ts
